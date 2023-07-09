@@ -1,0 +1,390 @@
+:root {
+    --main: #1197d5;
+    --light: #fff;
+    --light-grey: #EFEFEF;
+    --light-main: #6BC8FC;
+    --light-main-77: #6BC8FC77;
+    --emph: #21D511;
+    --transparent: #0000;
+    --dark: #3337;
+    --error: #f00;
+}
+/* шрифт */
+* {
+    font-family: "Nunito", Verdana, sans-serif;
+}
+
+/* общие */
+body, #app {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    font-size: medium;
+}
+button:focus {
+    outline: 0px;
+}
+.top-content, .bottom-content {
+    margin-top: 25px;
+    width: 80%;
+    display: flex;
+}
+.top-content.colomn {
+    flex-direction: column;
+    align-items: center;
+}
+
+.inline-cont {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.colomn-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr {
+    width: 100%;
+    height: 0;
+    border-top: 2px solid #666;
+}
+
+.right-content {
+    flex: 75%;
+}
+.left-content {
+    flex: 25%;
+    margin-right: 20px;
+}
+
+/* шапка */
+.header {
+    background-color: var(--main);
+    color: var(--light);
+    z-index: 1;
+}
+.header-wrap {
+    width: 80%;
+}
+.header h1 {text-align: center;}
+.logo {
+    width: 90%;
+    max-width: 200px;
+    height: auto;
+}
+
+/* верхний контент */
+.target-dd {
+    justify-content: center;
+}
+.target-dd .value {
+    font-size: x-large;
+    font-weight: bold;
+    margin: 0px 7px;
+}
+.current-dd .line {
+    margin: 3px 0px;
+    text-align: center;
+}
+.current-dd .value {
+    font-size: large;
+    font-weight: bold;
+}
+.max-volume {
+    font-size: small;
+    margin-bottom: 10px;
+}
+.volume {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+.curr-volume {
+    font-size: large;
+    font-weight: bold;
+    z-index: 1;
+}
+.progress-cont {
+    transform: rotate(-90deg);
+    height: 120px;
+    width: 120px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+progress.volume-progress {
+    height: 60px;
+    border-radius: 10px 0px 0px 10px;
+}
+progress.volume-progress::-webkit-progress-bar {
+    border-radius: 10px 0px 0px 10px;
+    border: 2px solid #000;
+    background-color: var(--transparent);
+}
+progress.volume-progress::-webkit-progress-value {
+    background-color: var(--light-main);
+    border-radius: 10px 0px 0px 10px;
+    transition: width 1s ease-in-out;
+}
+progress.volume-progress.done::-webkit-progress-value {
+    background-color: var(--emph);
+}
+
+/* условие */
+.task-condition {
+    display: flex;
+}
+.top-content.colomn .task-condition {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.task-condition h3 {
+    margin-top: 10px;
+}
+.btn-arrow {
+    cursor: pointer;
+    background-color: var(--transparent);
+    border: var(--main) 1px solid;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    margin: 5px 10px;
+}
+.arrow {
+    width: 20px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+.task-inner {
+    flex: 1;
+}
+.task-line {
+    margin: 5px 0px;
+}
+
+/* кузнечик */
+.grasshopper-cont {
+    background-color: var(--light-grey);
+    height: fit-content;
+    border-radius: 5px;
+}
+.limit-line {
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .min {
+        margin-left: 5px;
+    }
+    .max {
+        margin-right: 5px;
+    }
+    .min, .max {
+        margin-top: 5px;
+    }
+}
+.grasshopper {
+    width: 100px;
+    height: auto;
+    transform: translateY(0px);
+    transition: transform 0.5s ease-in-out;
+}
+.grasshopper.anim {
+    transform: translateY(30px);
+    transition: transform 0.5s ease-in-out;
+}
+.numbers {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.numbers-prev, .numbers-next {
+    display: flex;
+}
+.numbers-prev { 
+    position: absolute;
+    right: calc(50% + 20px);
+}
+.numbers-next {
+    position: absolute;
+    left: calc(50% + 20px);
+}
+.curr-val-gh {
+    position: absolute;
+    left: calc(50% - 20px);
+    font-weight: bold;
+    font-size: x-large;
+}
+.num {
+    width: 35px;
+    margin: 0px 5px;
+    text-align: center;
+}
+
+/* нижний контент */
+.btn-main {
+    background-color: var(--main);
+    border-radius: 10px;
+    color: var(--light);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 7px 10px;
+    margin: 5px;
+    border: 0px;
+}
+.btn-main:hover {
+    background-color: var(--light-main);
+}
+.btn-main:active {
+    background-color: var(--main);
+}
+.bottom-content {margin-bottom: 50px;}
+.bottom-content h3, .modal h3 {
+    margin: 5px 0px;
+}
+.solution-head h3 {
+    flex: 5;
+}
+.btn-command {
+    cursor: pointer;
+    width: 80%;
+    min-width: 150px;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: var(--light-main);
+    border: var(--main) 1px solid;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.btn-command:hover {
+   background-color: var(--light-main-77);
+}
+.btn-command:active {
+    background-color: var(--light-main);
+}
+.make-procedure {
+    width: 80%;
+    min-width: 150px;
+}
+.btn-sol {
+    cursor: pointer;
+    background-color: var(--transparent);
+    border: 0px;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.btn-sol:hover {
+    background-color: var(--light-grey);
+}
+.btn-sol:active {
+    background-color: var(--light-main-77);
+}
+.btn-sol-cont {
+    flex: 1;
+}
+.solution-field {
+    height: 250px;
+    background-color: var(--light-grey);
+    border-radius: 20px;
+    margin: 5px 0px 10px;
+    padding: 10px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    overflow-y: scroll;
+}
+.command {
+    margin: 2px 20px;
+    font-family: "Consolas", monospace;
+}
+.line {
+    width: 98%;
+    margin: 5px 0px;
+}
+.bold {font-weight: bold;}
+
+/* модалка "Создание процедуры" */
+.modal-wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: var(--dark);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    overflow-y: scroll;
+}
+.modal-wrap.show {
+    display: flex;
+}
+.modal {
+    background-color: var(--light);
+    border-radius: 30px;
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.procedure-name-cont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.name-input {
+    flex: 1;
+    min-width: 200px;
+    height: 25px;
+    border: var(--main) 1px solid;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: medium;
+}
+.name-input:focus {
+    outline: var(--transparent);
+}
+.name-input.afterChange:invalid {
+    border: var(--error) 3px solid;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: var(--transparent);
+}
+::-webkit-scrollbar-track {
+    width: 0px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: var(--light-main);
+    border: 0px;
+}
