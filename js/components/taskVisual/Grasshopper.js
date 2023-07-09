@@ -30,7 +30,7 @@ export default {
             <span class="min">Min: {{min}}</span>
             <span class="max">Max: {{max}}</span>
         </div>
-        <img src="/assets/grasshopper.png" class="grasshopper">
+        <img src="assets/grasshopper.png" class="grasshopper">
         <hr>
         <div class="numbers">
             <div class="numbers-prev">

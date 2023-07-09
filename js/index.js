@@ -214,7 +214,7 @@ createApp({
         let les = path.searchParams.get('lesson');
         if (les !== this.lesson) {
             this.lesson = les;
-            this.lessonData = await fetch(`/db/lesson${this.lesson}.json`).then(res => res.json());
+            this.lessonData = await fetch(`db/lesson${this.lesson}.json`).then(res => res.json());
             this.maxTask = this.lessonData.length;
         }
         this.task = Number(path.searchParams.get('task'));

@@ -24,12 +24,12 @@ export default {
     },
     template: `
     <div class="task-condition right-content">
-        <button class="btn-arrow" @click="prev"><img src="/assets/prev.png" class="arrow"></button>
+        <button class="btn-arrow" @click="prev"><img src="assets/prev.png" class="arrow"></button>
         <div class="task-inner">
             <h3>Задача "{{taskTitle}}". Условие</h3>
             <p v-for="line in taskText" class="task-line">{{line}}</p>
         </div>
-        <button class="btn-arrow" @click="next"><img src="/assets/next.png" class="arrow"></button>
+        <button class="btn-arrow" @click="next"><img src="assets/next.png" class="arrow"></button>
     </div>
     `
 }

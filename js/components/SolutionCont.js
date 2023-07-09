@@ -5,8 +5,8 @@ export default {
         <div class="solution-head inline-cont">
             <h3>Решение</h3>
             <div class="btn-sol-cont inline-cont">
-                <button class="btn-sol" @click="back"><img src="/assets/back.png" class="arrow"></button>
-                <button class="btn-sol" @click="repeat"><img src="/assets/repeat.png" class="arrow"></button>
+                <button class="btn-sol" @click="back"><img src="assets/back.png" class="arrow"></button>
+                <button class="btn-sol" @click="repeat"><img src="assets/repeat.png" class="arrow"></button>
                 <button class="btn-sol" @click="clean">Сбросить</button>
             </div>
         </div>
