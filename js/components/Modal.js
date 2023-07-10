@@ -45,7 +45,16 @@ export default {
             if (!t.closest('.modal')) this.canClose = true;
         },
         canCloseModal({ target: t }) {
-            if (!t.closest('.modal') && this.canClose) this.$emit('closeModal');
+            if (!t.closest('.modal') && this.canClose) {
+                this.$emit('closeModal');
+                this.procedureName = '';
+                this.modalCommands = [];
+                this.modalSolution = [];
+                this.modalDeleteArr = [];
+                this.modalCurrentValue = 0;
+                this.modalSolutionLength = 0;
+                this.afterChange = false;
+            }
         },
         changeSolLength() {
             let solutionLen = 0;
@@ -166,7 +175,11 @@ export default {
                     <span class="command" v-for="(com, index) in modalSolution" :key=index>{{com.text}}</span>
                 </div>
                 <div class="modal-btn-cont inline-cont">
-                    <span>Сумма шагов: {{modalCurrentValue}}. Количество шагов: {{modalSolutionLength}}</span>
+                    <span>
+                        Сумма шагов: {{modalCurrentValue}}
+                        <br>
+                        Количество шагов: {{modalSolutionLength}}
+                    </span>
                     <button class="btn-main" @click="makeProcedure">Создать процедуру</button>
                 </div>
             </div>

@@ -88,9 +88,7 @@ export default {
                 this.$emit('addCommandToSolution', 'перелить из В в А');
             }
         },
-    },
-    watch: {
-        executor() {
+        makeCommands() {
             if (this.executor === 'doubler') {
                 let list = [
                     {'text': `+${this.args.plus}`, 'func': this.plus},
@@ -119,8 +117,17 @@ export default {
                     {'text': 'перелить из В в А', 'func': this.fromBtoA},
                 ];
                 this.$emit('saveCommands', list);
+                console.log(this.commands);
             }
+        }
+    },
+    watch: {
+        executor() {
+            this.makeCommands();
         },
+    },
+    created() {
+        this.makeCommands();
     },
     template: `
     <div class="commands-cont colomn-cont left-content">

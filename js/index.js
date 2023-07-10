@@ -11,7 +11,6 @@ import Modal from './components/Modal.js';
 createApp({
     data() {
         return {
-            lesson: 0,
             task: 0,
             lessonData: [],
             maxTask: 0,
@@ -40,6 +39,8 @@ createApp({
             solutionLength: 0, 
             deleteArr: [],
             show: false,
+            orientation: '',
+            mobile: false,
         }
     },
     watch: {
@@ -208,15 +209,24 @@ createApp({
             this.points = currPoints;
             this.show = true;
         },
+        changeRender() {
+            let width = screen.availWidth;
+            let heigth = screen.availHeight;
+            const app = document.querySelector('#app');
+            if (width <= 850 || heigth <= 500) {
+                app.classList.add('mobile');
+                this.mobile = true;
+            } else {
+                app.classList.remove('mobile');
+                this.mobile = false;
+            }
+        },
     },
     async created() {
         let path = new URL(document.location);
         let les = path.searchParams.get('lesson');
-        if (les !== this.lesson) {
-            this.lesson = les;
-            this.lessonData = await fetch(`db/lesson${this.lesson}.json`).then(res => res.json());
-            this.maxTask = this.lessonData.length;
-        }
+        this.lessonData = await fetch(`db/lesson${les}.json`).then(res => res.json());
+        this.maxTask = this.lessonData.length;
         this.task = Number(path.searchParams.get('task'));
         let thisTask = this.lessonData.find(el => el.task === this.task);
         this.executor = thisTask.executor;
@@ -249,11 +259,62 @@ createApp({
             this.min = this.taskParams.min;
             this.max = this.taskParams.max;
         }
+        this.changeRender();
+        window.addEventListener('resize', this.changeRender);
     },
     components: {Header, Task, Commands, SolutionCont, DoublerDivider, Aquarius, Grasshopper, Modal},
     template: `
     <Header :title=title />
-    <div class="content colomn-cont">
+    <div v-if="mobile && executor!=='grasshopper'" class="content colomn-cont">
+        <Task
+        :taskTitle=taskTitle
+        :taskText=taskText
+        :maxTask=maxTask />
+        <div class="inline-cont bottom-content">
+            <DoublerDivider 
+                v-if="executor==='doubler' || executor==='divider'"
+                :start=taskParams.start
+                :end=taskParams.end
+                :currentValue=currentValue />
+            <Aquarius 
+                v-if="executor==='aquarius'"
+                :volumeA=volumeA
+                :volumeB=volumeB
+                :currVolumeA=currVolumeA
+                :currVolumeB=currVolumeB
+                :doneA=doneA
+                :doneB=doneB />
+            <Commands
+                :executor=executor
+                :args=args
+                :volumeA=volumeA
+                :volumeB=volumeB
+                :currVolumeA=currVolumeA
+                :currVolumeB=currVolumeB
+                :currentValue=currentValue
+                :procedure=taskParams.procedure
+                :commands=commands
+                :procedures=procedures
+                @open-modal=modalActive
+                @save-commands=saveCommands
+                @add-command-to-solution="addCommandToSolution"
+                @change-current-value="changeCurrentValue"
+                @change-volume-a="changeVolumeA"
+                @change-volume-b="changeVolumeB" />
+        </div>
+        <SolutionCont
+            class="bottom-content"
+            :solution=solution
+            :solutionLength=solutionLength
+            :verifCode=verifCode
+            :points=points
+            :checkSolution=checkSolution
+            :show=show
+            :clean=clean
+            :back=back
+            :repeat=repeat />
+    </div>
+    <div v-else class="content colomn-cont">
         <div class="top-content" :class="{colomn: executor==='grasshopper'}">
             <DoublerDivider 
                 v-if="executor==='doubler' || executor==='divider'"
