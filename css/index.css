@@ -9,6 +9,7 @@
     --dark: #3337;
     --error: #f00;
 }
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 /* шрифт */
 * {
     font-family: "Nunito", Verdana, sans-serif;
