@@ -14,6 +14,7 @@ createApp({
             task: 0,
             lessonData: [],
             maxTask: 0,
+            minTask: 0,
             executor: '',
             title: '',
             taskText: [],
@@ -226,9 +227,13 @@ createApp({
         let path = new URL(document.location);
         let les = path.searchParams.get('lesson');
         this.lessonData = await fetch(`db/lesson${les}.json`).then(res => res.json());
-        this.maxTask = this.lessonData.length;
+        let level = Number(path.searchParams.get('level'));
+        let thisLevel = this.lessonData.find(el => el.level === level);
+        let thisData = thisLevel.tasks;
+        this.minTask = thisData[0].task;
+        this.maxTask = thisData[thisData.length - 1].task;
         this.task = Number(path.searchParams.get('task'));
-        let thisTask = this.lessonData.find(el => el.task === this.task);
+        let thisTask = thisData.find(el => el.task === this.task);
         this.executor = thisTask.executor;
         this.taskTitle = thisTask.task_title;
         this.taskText = thisTask.task_text;
@@ -269,7 +274,8 @@ createApp({
         <Task
         :taskTitle=taskTitle
         :taskText=taskText
-        :maxTask=maxTask />
+        :maxTask=maxTask
+        :minTask=minTask />
         <div class="inline-cont bottom-content">
             <DoublerDivider 
                 v-if="executor==='doubler' || executor==='divider'"

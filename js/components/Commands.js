@@ -117,7 +117,6 @@ export default {
                     {'text': 'перелить из В в А', 'func': this.fromBtoA},
                 ];
                 this.$emit('saveCommands', list);
-                console.log(this.commands);
             }
         }
     },
