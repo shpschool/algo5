@@ -9,6 +9,16 @@
     --dark: #3337;
     --error: #f00;
 }
+@font-face {
+    font-family: "Nunito";
+    src: url(fonts/Nunito.ttf);
+    font-style: normal;
+}
+@font-face {
+    font-family: "Nunito";
+    src: url(fonts/Nunito-Italic.ttf);
+    font-style: italic;
+}
 /* шрифт */
 * {
     font-family: "Nunito", Verdana, sans-serif;
@@ -383,7 +393,7 @@ progress.volume-progress.done::-webkit-progress-value {
     background-color: var(--light-main);
     border: 0px;
 }
-
+#app.mobile::-webkit-scrollbar {width: 0px;}
 #app.mobile .modal {
     width: 80%;
     height: 90vh;
