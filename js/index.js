@@ -230,10 +230,8 @@ createApp({
         let level = Number(path.searchParams.get('level'));
         let thisLevel = this.lessonData.find(el => el.level === level);
         let thisData = thisLevel.tasks;
-        console.log(this.minTask, this.maxTask);
         this.minTask = thisData[0].task;
         this.maxTask = thisData[thisData.length - 1].task;
-        console.log(this.minTask, this.maxTask);
         this.task = Number(path.searchParams.get('task'));
         let thisTask = thisData.find(el => el.task === this.task);
         this.executor = thisTask.executor;
@@ -340,7 +338,8 @@ createApp({
             <Task
                 :taskTitle=taskTitle
                 :taskText=taskText
-                :maxTask=maxTask />
+                :max="maxTask"
+                :min="minTask" />
             <Grasshopper
                 v-if="executor==='grasshopper'"
                 :start=taskParams.start
