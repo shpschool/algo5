@@ -1,30 +1,43 @@
 export default {
-    props: ['taskTitle', 'taskText', 'minTask', 'maxTask'],
+    data() {
+        return {
+            maxi: 0,
+            mini: 0,
+        }
+    },
+    props: ['taskTitle', 'taskText', 'min', 'max'],
     watch: {
-        minTask(minNew, minOld) {
+        max(maxNew, maxOld) {
+            console.log(maxOld, maxNew);
+            this.maxi = maxNew;
+        },
+        min(minNew, minOld) {
             console.log(minOld, minNew);
+            this.mini = minNew;
         }
     },
     methods: {
         prev() {
             let path = new URL(document.location);
             let taskNumber = Number(path.searchParams.get('task'));
-            if (taskNumber === this.minTask) {
-                path.searchParams.set('task', this.maxTask)
+            console.log(this.min, this.mini);
+            if (taskNumber === this.mini) {
+                path.searchParams.set('task', this.maxi)
             } else {
                 path.searchParams.set('task', taskNumber - 1)
             }
-            document.location = path;
+            // document.location = path;
         },
         next() {
             let path = new URL(document.location);
             let taskNumber = Number(path.searchParams.get('task'));
-            if (taskNumber === this.maxTask) {
-                path.searchParams.set('task', this.minTask)
+            console.log(this.max, this.maxi);
+            if (taskNumber === this.maxi) {
+                path.searchParams.set('task', this.mini)
             } else {
                 path.searchParams.set('task', taskNumber + 1)
             }
-            document.location = path;
+            // document.location = path;
         }
     },
     template: `
