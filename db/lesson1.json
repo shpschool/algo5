@@ -235,5 +235,64 @@
                 }
             }
         ]
+            },
+     {
+        "level": 4,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "doubler",
+                "task_title": "Вычисление первое",
+                "task_text": ["Преврати число 0 в число 19."],
+                "params": {
+                    "start": 0,
+                    "end": 19,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 7
+                },
+                "verif_code": {
+                    "0": "SGBTAY-0L1T12",
+"75": "SOBTDL-75L1T12",
+"100": "BOCIAJ-100L1T12"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "doubler",
+                "task_title": "Вычисление второе",
+                "task_text": ["Преврати число 0 в число 57."],
+                "params": {
+                    "start": 0,
+                    "end": 57,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 9
+                },
+                "verif_code": {
+                    "0": "PDDLHH-0L1T13",
+"75": "HXGQGY-75L1T13",
+"100": "BBTKHF-100L1T13"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "doubler",
+                "task_title": "Вычисление третье",
+                "task_text": ["Преврати число 3 в число 127."],
+                "params": {
+                    "start": 3,
+                    "end": 127,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "DWKNAT-0L1T14",
+"75": "JDRYME-75L1T14",
+"100": "GUGTIM-100L1T14"
+                }
+            }
+        ]
             }
 ]
