@@ -1,1 +1,410 @@
-
+[
+    {
+      "level": 1,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "divider",
+                "task_title": "Уменьшаем",
+                "task_text": ["<i>Итак, мы теперь можем вычитать единицу или делить на два.</i>",
+                              "<hr>",
+                             "Преврати число 5 в число 0"],
+                "params": {
+                    "start": 5,
+                    "end": 0,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 4
+                },
+                "verif_code": {
+                    "0": "FMCAPY-0L2T1",
+"75": "BWOLBM-75L2T1",
+"100": "CTDDKN-100L2T1"
+                }
+            },
+          {
+                "task": 2,
+                "executor": "divider",
+                "task_title": "И снова уменьшаем",
+                "task_text": ["<i>Хорошо. Давай ещё разок.</i>",
+                              "<hr>",
+                             "Преврати число 11 в число 0."],
+                "params": {
+                    "start": 11,
+                    "end": 0,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 6
+                },
+                "verif_code": {
+                    "0": "VMQVPX-0L2T2",
+"75": "JLMFTV-75L2T2",
+"100": "DMMQXZ-100L2T2"
+                }
+            },
+          {
+                "task": 3,
+                "executor": "divider",
+                "task_title": "Меняем числа",
+                "task_text": ["<i>Отлично. Давай вести эксперимент как в прошлый раз. Увеличиваем числа.</i>",
+                              "<hr>",
+                             "Преврати число 25 в число 0."],
+                "params": {
+                    "start": 25,
+                    "end": 0,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 7
+                },
+                "verif_code": {
+                    "0": "WXBXUO-0L2T3",
+"75": "BWWSRI-75L2T3",
+"100": "WUXLWN-100L2T3"
+                }
+            },
+          {
+                "task": 4,
+                "executor": "divider",
+                "task_title": "Уменьшим число побольше",
+                "task_text": ["<i>Повышаем! Повышаем!</i>",
+                              "<hr>",
+                             "Преврати число 111 в число 0."],
+                "params": {
+                    "start": 111,
+                    "end": 0,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 12
+                },
+                "verif_code": {
+                    "0": "EILLUB-0L2T4",
+"75": "KNMADQ-75L2T4",
+"100": "GTHSSL-100L2T4"
+                }
+            },
+          {
+                "task": 5,
+                "executor": "divider",
+                "task_title": "Ноль - не предел",
+                "task_text": ["<i>И ещё один эксперимент. Давай попробуем остановиться раньше нуля. Если машина не сгорит - мы откроем новые возможности.</i>",
+                              "<hr>",
+                             "Преврати число 123 в число 12."],
+                "params": {
+                    "start": 123,
+                    "end": 12,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 8
+                },
+                "verif_code": {
+                    "0": "JQNGMR-0L2T5",
+"75": "ZJMDUL-75L2T5",
+"100": "EYAOCO-100L2T5"
+                }
+            }
+        ]
+    },
+  {
+      "level": 2,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "doubler",
+                "task_title": "Сперва \"в лоб\"",
+                "task_text": ["<i>Я советую тебе попробовать сделать решение только с помощью команды “+1”. При следующем запуске мы его оптимизируем.</i>",
+                              "<hr>",
+                             "Преврати число 1 в число 11 только с помощью команды “+1”."],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "plus": 1,
+                    "multi": 1,
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "WGPGSI-0L2T6",
+"75": "XLHHIV-75L2T6",
+"100": "EYLXPP-100L2T6"
+                }
+            },
+          {
+                "task": 2,
+                "executor": "doubler",
+                "task_title": "Потом оптимально",
+                "task_text": ["<i>Мы получили длинное решение. Давай его оптимизируем, используя наши новые правила.</i>",
+                              "<hr>",
+                             "Используя правила оптимизации, преврати решение предыдущей задачи в оптимальное. Преврати число 1 в число 11 за минимальное количество шагов."],
+                "params": {
+                    "start": 1,
+                    "end": 11,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 5
+                },
+                "verif_code": {
+                    "0": "THYWIQ-0L2T7",
+"75": "GGVYTD-75L2T7",
+"100": "TZFPMH-100L2T7"
+                }
+            },
+          {
+                "task": 3,
+                "executor": "doubler",
+                "task_title": "Повторим правила",
+                "task_text": ["<i>Итак, надеюсь, правила тебе понятны. Сейчас мы ещё несколько раз протестируем машину - используй правила оптимизации в каждом следующем запуске. Не забудь - делай решение с “+1” и сокращай его.</i>",
+                              "<hr>",
+                             "Преврати число 2 в число 13 за минимальное количество шагов."],
+                "params": {
+                    "start": 2,
+                    "end": 13,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 4
+                },
+                "verif_code": {
+                    "0": "JQKTWY-0L2T8",
+"75": "YRQLWP-75L2T8",
+"100": "RUUCPC-100L2T8"
+                }
+            },
+          {
+                "task": 4,
+                "executor": "doubler",
+                "task_title": "Кстати…",
+                "task_text": ["<i>Продолжаем. Береги ресурсы нашей машинки, она нам ещё пригодится! Кстати, если писать в тетради большую цепочку \"+1\" трудно, ты можешь записывать её как <u>\"+1\" (23 раза)</u>.</i>",
+                              "<hr>",
+                             "Преврати число 17 в число 40 за минимальное количество шагов."],
+                "params": {
+                    "start": 17,
+                    "end": 40,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 4
+                },
+                "verif_code": {
+                    "0": "HUMCIY-0L2T9",
+"75": "JRJEEU-75L2T9",
+"100": "RMTOMJ-100L2T9"
+                }
+            },
+          {
+                "task": 5,
+                "executor": "doubler",
+                "task_title": "Исключения",
+                "task_text": ["<i>Почему-то мне кажется, что правила работают не всегда… Да нет, не может такого быть.</i>",
+                              "<hr>",
+                             "Преврати число 15 в число 28 за минимальное количество шагов."],
+                "params": {
+                    "start": 15,
+                    "end": 28,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 13
+                },
+                "verif_code": {
+                    "0": "LCMJOL-0L2T10",
+"75": "GYAUZW-75L2T10",
+"100": "EJNJEA-100L2T10"
+                }
+            },
+          {
+                "task": 6,
+                "executor": "doubler",
+                "task_title": "Просто продолжай",
+                "task_text": ["<i>И давай ещё разок. Если у тебя всё получится, мы начнём усложнённые эксперименты.</i>",
+                              "<hr>",
+                             "Преврати число 4 в число 31 за минимальное количество шагов."],
+                "params": {
+                    "start": 4,
+                    "end": 31,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 7
+                },
+                "verif_code": {
+                    "0": "OOGLUZ-0L2T11",
+"75": "JSSHBY-75L2T11",
+"100": "IQBSPR-100L2T11"
+                }
+            }
+        ]
+    },
+  {
+      "level": 3,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "doubler",
+                "task_title": "Начинаем усложнять",
+                "task_text": ["<i>Не забывай пользоваться правилами оптимизации. Мне очень важно, чтобы все алгоритмы были максимально быстрыми.</i>",
+                              "<hr>",
+                             "Преврати число 9 в число 200 за минимальное количество шагов."],
+                "params": {
+                    "start": 9,
+                    "end": 200,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 8
+                },
+                "verif_code": {
+                    
+                }
+            },----------------------------------------------------------------------------------------------
+          {
+                "task": ,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            },
+          {
+                "task": ,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            },
+          {
+                "task": ,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            },
+          {
+                "task": ,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            }
+        ]
+    },
+  {
+      "level": 4,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            }
+        ]
+    },
+  {
+      "level": 5,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            },
+          {
+                "task": ,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            },
+          {
+                "task": ,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": ["<i></i>",
+                              "<hr>",
+                             ""],
+                "params": {
+                    "start": ,
+                    "end": ,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            }
+        ]
+    }
+  
+]
