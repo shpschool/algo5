@@ -247,79 +247,89 @@
                     "steps": 8
                 },
                 "verif_code": {
-                    
-                }
-            },----------------------------------------------------------------------------------------------
-          {
-                "task": ,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
-                              "<hr>",
-                             ""],
-                "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
-                },
-                "verif_code": {
-                    
+                    "0": "GOWEJC-0L2T12",
+"75": "MGXOGR-75L2T12",
+"100": "SNXIHP-100L2T12"
                 }
             },
           {
-                "task": ,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
+                "task": 2,
+                "executor": "doubler",
+                "task_title": "Продолжаем усложнять",
+                "task_text": ["<i>Продолжай в том же духе!</i>",
                               "<hr>",
-                             ""],
+                             "Преврати число 55 в число 124 за минимальное количество шагов."],
                 "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
+                    "start": 55,
+                    "end": 124,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 8
                 },
                 "verif_code": {
-                    
+                    "0": "CDODJF-0L2T13",
+"75": "RRYDCG-75L2T13",
+"100": "LKZZWE-100L2T13"
                 }
             },
           {
-                "task": ,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
+                "task": 3,
+                "executor": "doubler",
+                "task_title": "Продолжаем умножать",
+                "task_text": ["<i>Ой, как жаль, что у нас нет возможности умножить на 10…</i>",
                               "<hr>",
-                             ""],
+                             "Преврати число 47 в число 470 за минимальное количество шагов."],
                 "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
+                    "start": 47,
+                    "end": 470,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 16
                 },
                 "verif_code": {
-                    
+                    "0": "VGTWRF-0L2T14",
+"75": "OGZKQW-75L2T14",
+"100": "OMBSLS-100L2T14"
                 }
             },
           {
-                "task": ,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
+                "task": 4,
+                "executor": "doubler",
+                "task_title": "Очень хотим умножать",
+                "task_text": ["<i>А ты знаешь, что Леонардо да Винчи не только писал картины, но и был великим изобретателем? Ой, прости, я тебя не отвлекаю?</i>",
                               "<hr>",
-                             ""],
+                             "Преврати число 6 в число 651 за минимальное количество шагов."],
                 "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
+                    "start": 6,
+                    "end": 651,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 13
                 },
                 "verif_code": {
-                    
+                    "0": "KQNNAP-0L2T15",
+"75": "GEFKMT-75L2T15",
+"100": "OJSVOF-100L2T15"
+                }
+            },
+          {
+                "task": 5,
+                "executor": "doubler",
+                "task_title": "Очень хотим решить всё!",
+                "task_text": ["<i>Последний эксперимент. Я собрала почти всё, что мне нужно.</i>",
+                              "<hr>",
+                             "Преврати число 31 в число 423 за минимальное количество шагов."],
+                "params": {
+                    "start": 31,
+                    "end": 423,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 27
+                },
+                "verif_code": {
+                    "0": "YFWDAW-0L2T16",
+"75": "LFGBMC-75L2T16",
+"100": "DAJWIK-100L2T16"
                 }
             }
         ]
@@ -329,20 +339,20 @@
         "tasks": [
             {
                 "task": 1,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
-                              "<hr>",
-                             ""],
+                "executor": "doubler",
+                "task_title": "Испытание №2",
+                "task_text": ["Преврати число 57 в число 3015 за минимальное количество шагов."],
                 "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
+                    "start": 57,
+                    "end": 3015,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 45
                 },
                 "verif_code": {
-                    
+                    "0": "DXIGTZ-0L2T17",
+"75": "RMBLXE-75L2T17",
+"100": "NWLROE-100L2T17"
                 }
             }
         ]
@@ -353,55 +363,55 @@
             {
                 "task": 1,
                 "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
-                              "<hr>",
-                             ""],
+                "task_title": "Восполним Поделителя",
+                "task_text": ["Преврати число 49 в число 0."],
                 "params": {
-                    "start": ,
-                    "end": ,
+                    "start": 49,
+                    "end": 0,
                     "minus": 1,
                     "divide": 2,
-                    "steps": 000
+                    "steps": 8
                 },
                 "verif_code": {
-                    
+                    "0": "BCJHSL-0L2T18",
+"75": "RVXAGS-75L2T18",
+"100": "SVKMGZ-100L2T18"
                 }
             },
           {
-                "task": ,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
-                              "<hr>",
-                             ""],
+                "task": 2,
+                "executor": "doubler",
+                "task_title": "Дополним оптимизацию",
+                "task_text": ["Преврати число 25 в число 60 за минимальное количество шагов."],
                 "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
+                    "start": 25,
+                    "end": 60,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 6
                 },
                 "verif_code": {
-                    
+                    "0": "KRTGVZ-0L2T19",
+"75": "DWUJQO-75L2T19",
+"100": "FUGFVC-100L2T19"
                 }
             },
           {
-                "task": ,
-                "executor": "divider",
-                "task_title": "",
-                "task_text": ["<i></i>",
-                              "<hr>",
-                             ""],
+                "task": 3,
+                "executor": "doubler",
+                "task_title": "Завершим подготовку",
+                "task_text": ["Преврати число 11 в число 74 за минимальное количество шагов."],
                 "params": {
-                    "start": ,
-                    "end": ,
-                    "minus": 1,
-                    "divide": 2,
-                    "steps": 000
+                    "start": 11,
+                    "end": 74,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 10
                 },
                 "verif_code": {
-                    
+                    "0": "GDZNGB-0L2T20",
+"75": "OEKFBC-75L2T20",
+"100": "JDTDNS-100L2T20"
                 }
             }
         ]
