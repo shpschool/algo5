@@ -1,0 +1,50 @@
+Удвоитель
+[
+    {
+        "level": 000,
+        "tasks": [
+            {
+                "task": 000,
+                "executor": "doubler",
+                "task_title": "",
+                "task_text": [""],
+                "params": {
+                    "start": 000,
+                    "end": 000,
+                    "plus": 1,
+                    "multi": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            }
+        ]
+    }
+]
+
+Поделитель
+Удвоитель
+[
+    {
+        "level": 000,
+        "tasks": [
+            {
+                "task": 000,
+                "executor": "divider",
+                "task_title": "",
+                "task_text": [""],
+                "params": {
+                    "start": 000,
+                    "end": 000,
+                    "minus": 1,
+                    "divide": 2,
+                    "steps": 000
+                },
+                "verif_code": {
+                    
+                }
+            }
+        ]
+    }
+]
