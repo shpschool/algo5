@@ -7,7 +7,9 @@
                 "task": 000,
                 "executor": "doubler",
                 "task_title": "",
-                "task_text": [""],
+                "task_text": ["<i>речь</i>",
+                              "<hr>",
+                             "задание"],
                 "params": {
                     "start": 000,
                     "end": 000,
@@ -33,7 +35,9 @@
                 "task": 000,
                 "executor": "divider",
                 "task_title": "",
-                "task_text": [""],
+                "task_text": ["<i>речь</i>",
+                              "<hr>",
+                             "задание"],
                 "params": {
                     "start": 000,
                     "end": 000,
