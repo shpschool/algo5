@@ -5,46 +5,52 @@
             {
                 "task": 1,
                 "executor": "divider",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Проверим алгоритм",
+                "task_text": ["<i>Сперва проверим, что ваш “универсальный алгоритм” действительно может решать задачу уменьшения числа. Если это так, я уже придумала, как заставить машину делать это самостоятельно.</i>",
+                              "<hr>",
+                             "Преврати число 15 в число 0 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 15,
+                    "end": 0,
                     "minus": 1,
                     "divide": 2,
-                    "steps": 000
+                    "steps": 7
                 },
                 "verif_code": {
                     
                 }
             },
            {
-                "task": 000,
+                "task": 2,
                 "executor": "divider",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Продолжаем проверку",
+                "task_text": ["<i>Отлично! Отлично! Ещё разок!</i>",
+                              "<hr>",
+                             "Преврати число 16 в число 0 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 16,
+                    "end": 0,
                     "minus": 1,
                     "divide": 2,
-                    "steps": 000
+                    "steps": 5
                 },
                 "verif_code": {
                     
                 }
             },
            {
-                "task": 000,
+                "task": 3,
                 "executor": "divider",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Третий заход",
+                "task_text": ["<i>Великолепно. Я поняла, как ты действуешь и смогу переделать машину так, чтобы она тоже выполняла эти однотипные действия.Продолжаем эксперимент!</i>",
+                              "<hr>",
+                             "Преврати число 30 в число 0 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 30,
+                    "end": 0,
                     "minus": 1,
                     "divide": 2,
-                    "steps": 000
+                    "steps": 8
                 },
                 "verif_code": {
                     
@@ -56,48 +62,52 @@
         "level": 2,
         "tasks": [
             {
-                "task": 000,
+                "task": 1,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Первый алгоритм Удвоителя",
+                "task_text": ["<i>В следующих трёх экспериментах тебе помогут три предыдущих. Используй их!</i>",
+                              "<hr>",
+                             "Преврати число 0 в число 15 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 0,
+                    "end": 15,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 7
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 2,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Второй алгоритм Удвоителя",
+                "task_text": ["Преврати число 0 в число 16 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 0,
+                    "end": 16,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 5
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 3,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Третий алгоритм Удвоителя",
+                "task_text": ["<i>И ещё разок, давай.</i>",
+                              "<hr>",
+                             "Преврати число 0 в число 30 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 0,
+                    "end": 30,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 8
                 },
                 "verif_code": {
                     
@@ -109,80 +119,82 @@
         "level": 3,
         "tasks": [
             {
-                "task": 000,
+                "task": 1,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Универсальный алгоритм - 1",
+                "task_text": ["<i>Вот тебе несколько задач. Я пошла прорабатывать алгоритмы для машины. Вернусь - посмотрим на твои наработки.</i>",
+                              "<hr>",
+                             "Преврати число 0 в число 402 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 0,
+                    "end": 402,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 12
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 2,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Универсальный алгоритм - 2",
+                "task_text": ["Преврати число 0 в число 209 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 0,
+                    "end": 209,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 11
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 3,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Универсальный алгоритм - 3",
+                "task_text": ["Преврати число 27 в число 502 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 27,
+                    "end": 502,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 10
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 4,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Универсальный алгоритм - 4",
+                "task_text": ["Преврати число 34 в число 2173 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 34,
+                    "end": 2173,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 42
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 5,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Универсальный алгоритм - 5",
+                "task_text": ["Преврати число 23 в число 9080 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 23,
+                    "end": 9080,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 24
                 },
                 "verif_code": {
                     
@@ -194,80 +206,82 @@
         "level": 4,
         "tasks": [
             {
-                "task": 000,
+                "task": 1,
                 "executor": "doubler",
                 "task_title": "",
-                "task_text": [""],
+                "task_text": ["<i>Но пока что надо поработать. Теперь опробуем наш алгоритм на очень больших числах. Я уверена, что сложность не изменится, но поменяется время на решение. Давай проверим.</i>",
+                              "<hr>",
+                             "Преврати число 55 в число 10651 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 55,
+                    "end": 10651,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 39
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 2,
                 "executor": "doubler",
                 "task_title": "",
-                "task_text": [""],
+                "task_text": ["Преврати число 77 в число 7777 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 77,
+                    "end": 7777,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 52
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 3,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Проверка на великанских данных",
+                "task_text": ["Преврати число 205 в число 2022 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 205,
+                    "end": 2022,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 52
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 4,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Испытание на огромных объёмах",
+                "task_text": ["Преврати число 231 в число 1543 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 231,
+                    "end": 1543,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 158
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 5,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Анализ на необъятной арифметике",
+                "task_text": ["Преврати число 1024 в число 5005 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 1024,
+                    "end": 5005,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 230
                 },
                 "verif_code": {
                     
@@ -279,16 +293,18 @@
         "level": 5,
         "tasks": [
             {
-                "task": 000,
+                "task": 1,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Испытание №3",
+                "task_text": ["<i>Ты слишком полагаешься на простые алгоритмы. Жизнь не так проста! Ты увидишь, что иногда нужно идти наперекор своим знаниям и следовать за интуицией.</i>",
+                              "<hr>",
+                             "Преврати число 710 в число 4368 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 710,
+                    "end": 4368,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 384
                 },
                 "verif_code": {
                     
@@ -302,46 +318,46 @@
             {
                 "task": 000,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Задача 1",
+                "task_text": ["Преврати число 0 в число 303 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 0,
+                    "end": 303,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 14
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 2,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Задача 2",
+                "task_text": ["Преврати число 5 в число 401 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 5,
+                    "end": 401,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 9
                 },
                 "verif_code": {
                     
                 }
             },
           {
-                "task": 000,
+                "task": 3,
                 "executor": "doubler",
-                "task_title": "",
-                "task_text": [""],
+                "task_title": "Задача 3",
+                "task_text": ["Преврати число 25 в число 1010 за минимальное количество действий."],
                 "params": {
-                    "start": 000,
-                    "end": 000,
+                    "start": 25,
+                    "end": 1010,
                     "plus": 1,
                     "multi": 2,
-                    "steps": 000
+                    "steps": 13
                 },
                 "verif_code": {
                     
