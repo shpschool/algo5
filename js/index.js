@@ -23,7 +23,7 @@ if (path.searchParams.get('lesson')) {
                     this.accessStatus = false;
                     this.error = true;
                 }
-                let pass = await fetch(`https://github.com/shpschool/algo5_db/blob/c77f54309c669cb3053c94f02abba224d243f5f7/pass.json`).then(res => res.json());
+                let pass = await fetch(`https://github.com/shpschool/algo5_db/pass.json`).then(res => res.json());
                 console.log(pass);
             },
         },
