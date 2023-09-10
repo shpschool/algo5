@@ -1,0 +1,39 @@
+.accordion {
+    width: 90%;
+    margin-bottom: 50px;
+}
+.accordion h2 {
+    color: var(--main);
+    margin: 0px;
+}
+.accordion h3 {
+    color: var(--dark-text);
+}
+.btn-copy {
+    cursor: pointer;
+    background-color: var(--transparent);
+    border: var(--dark-grey) 1px solid;
+    border-radius: 10px;
+    padding: 7px;
+    margin-left: 10px;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+    cursor: pointer;
+}
+.svg-arrow {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.accordion-item.show .svg-arrow {
+    transform: rotate(-180deg);
+}
+
+.accordion-item:not(.accordion-item.show) .accordion-body {
+    display: none;
+}

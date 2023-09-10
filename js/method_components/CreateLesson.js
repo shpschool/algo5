@@ -13,6 +13,7 @@ export default {
         code: [],
         levels: 0,
     }},
+    emits: ['back'],
     methods: {
         createLevel() {
             this.levels++;
@@ -72,6 +73,8 @@ export default {
         },
     },
     template: `
+    <h1>Создание занятия</h1>
+    <a @click="$emit('back')" class="btn-back">На главную</a>
     <div class="method-cont">
         <div class="editor">
             <div v-for="level in code" :key="level.level" class="level-cont">

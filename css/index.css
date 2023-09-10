@@ -1,7 +1,9 @@
 @import url('editor.css');
+@import url('accordion.css');
 
 :root {
     --main: #1197d5;
+    --main77: #1197d577;
     --light: #fff;
     --light-grey: #EFEFEF;
     --light-main: #6BC8FC;
@@ -9,7 +11,10 @@
     --emph: #21D511;
     --transparent: #0000;
     --dark: #3337;
+    --dark-text: #333;
     --error: #f00;
+    --grey77: #eee7;
+    --dark-grey: #6667;
 }
 @font-face {
     font-family: "Nunito";
@@ -49,6 +54,25 @@ button:focus {
 .top-content.colomn {
     flex-direction: column;
     align-items: center;
+}
+.cont h1 {
+    text-align: center;
+    color: var(--main);
+}
+.btn-link {
+    margin-top: 30px;
+    cursor: pointer;
+    color: var(--main);
+}
+.btn-link:hover {
+    text-decoration: underline;
+}
+.btn-back {
+    cursor: pointer;
+    color: var(--dark-text);
+}
+.btn-back:hover {
+    text-decoration: underline;
 }
 
 .inline-cont {

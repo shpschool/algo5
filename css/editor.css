@@ -1,11 +1,3 @@
-:root {
-    --grey77: #eee7;
-    --dark-grey: #6667;
-    /* --main: #1197d5; */
-    --main77: #1197d577;
-    --dark-text: #333;
-}
-
 .field {
     padding: 5px;
     margin: 5px 0px;

@@ -1,6 +1,7 @@
 const { createApp } = Vue;
 import App from "./App.js";
-import Main from "./Main.js";
+import CreateLesson from "./method_components/CreateLesson.js";
+import ShowLessons from "./method_components/ShowLessons.js";
 
 let path = new URL(document.location);
 if (path.searchParams.get('lesson')) {
@@ -12,25 +13,28 @@ if (path.searchParams.get('lesson')) {
                 access: '',
                 accessStatus: false,
                 error: false,
+                page: '',
             }
         },
         methods: {
             async accessCheck() {
-                if (this.access == "23method_IS_really_work19") {
+                let pass = await fetch(`db/pass.json`).then(res => res.json());
+                if (this.access == pass) {
                     this.accessStatus = true;
                     this.error = false;
                 } else {
                     this.accessStatus = false;
                     this.error = true;
                 }
-                let pass = await fetch(`https://gist.github.com/iamgo100/5417ba47df4a889f1739b71f92d75325`).then(res => res.json());
-                console.log(pass);
+            },
+            back() {
+                this.page = ''
             },
         },
         created() {
             document.title = 'Главная';
         },
-        components: {Main},
+        components: {CreateLesson, ShowLessons},
         template: `
         <div class="header colomn-cont">
             <div class="header-wrap inline-cont">
@@ -41,13 +45,20 @@ if (path.searchParams.get('lesson')) {
                 <h1 v-else class="right-content">СТРАНИЦА МЕТОДИСТА</h1>
             </div>
         </div>
-        <div v-if="!accessStatus" class="colomn-cont ">
+        <div v-if="!accessStatus" class="colomn-cont">
             <h3>Вход для методистов:</h3>
             <input type="password" v-model="access" class="field">
             <span v-if="error" class="error">Неверный пароль</span>
             <button class="btn-main" @click="accessCheck">Войти</button>
         </div>
-        <Main v-else/>
+        <div v-else class="cont colomn-cont">
+            <div v-if="!page" class="colomn-cont">
+                <h2 @click="page = 'show'" class="btn-link">Посмотреть занятия</h2>
+                <h2 @click="page = 'create'" class="btn-link">Создать занятие</h2>
+            </div>
+            <ShowLessons v-if="page==='show'" @back="back" />
+            <CreateLesson v-if="page==='create'" @back="back" />
+        </div>
         `,
     }).mount('#app');
 };
