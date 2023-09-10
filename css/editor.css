@@ -1,0 +1,90 @@
+:root {
+    --grey77: #eee7;
+    --dark-grey: #6667;
+    /* --main: #1197d5; */
+    --main77: #1197d577;
+    --dark-text: #333;
+}
+
+.field {
+    padding: 5px;
+    margin: 5px 0px;
+    min-height: 30px;
+    border: 1px solid var(--main77);
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: white;
+}
+.field:focus {
+    outline: 2px solid var(--main);
+}
+.wide-field {
+    width: 90%;
+}
+textarea.field {
+    resize: vertical;
+}
+
+.method-cont {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.editor {
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.editor h3 {
+    color: var(--main);
+    margin: 5px 0px;
+}
+.editor h4 {
+    color: var(--dark-text);
+    margin: 5px 0px;
+}
+.editor label {
+    display: block;
+    margin-top: 5px;
+}
+.editor label.inline {
+    display: inline;
+    margin-right: 5px;
+}
+.btn-main {
+    width: fit-content;
+}
+.level-cont {
+    margin-bottom: 15px;
+    background-color: var(--grey77);
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+.task-cont {
+    margin-bottom: 10px;
+    border: 1px dashed var(--dark-grey);
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+.code-cont {
+    width: 38%;
+    height: fit-content;
+    background-color: var(--grey77);
+    border: 0px;
+    border-radius: 15px;
+    padding: 15px 30px;
+}
+.code-cont pre {
+    font-family: 'Courier New', Courier, monospace;
+    -ms-user-select: all;
+    -moz-user-select: all;
+    -khtml-user-select: all;
+    -webkit-user-select: all;
+    user-select: all;
+    cursor: pointer;
+}
