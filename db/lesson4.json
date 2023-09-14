@@ -1,0 +1,630 @@
+[
+  {
+    "level": 1,
+    "tasks": [
+      {
+        "task": 1,
+        "executor": "divider",
+        "task_title": "Тест 000450",
+        "task_text": [
+          "Преврати число 45 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 40,
+          "steps": 9
+        },
+        "verif_code": {
+          "0": "SRJEKR-0L1T1",
+          "75": "MZBEVA-75L1T1",
+          "100": "IIAXKE-100L1T1"
+        }
+      },
+      {
+        "task": 2,
+        "executor": "divider",
+        "task_title": "Тест 025025",
+        "task_text": [
+          "Преврати число 250 в число 25 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 25,
+          "minus": 1,
+          "divide": 2,
+          "start": 250,
+          "steps": 10
+        },
+        "verif_code": {
+          "0": "KEAQSW-0L1T2",
+          "75": "YCNKLZ-75L1T2",
+          "100": "NGJCHR-100L1T2"
+        }
+      },
+      {
+        "task": 3,
+        "executor": "divider",
+        "task_title": "Тест 005050",
+        "task_text": [
+          "Преврати число 505 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 505,
+          "steps": 15
+        },
+        "verif_code": {
+          "0": "UCTPGY-0L1T3",
+          "75": "XKNMKR-75L1T3",
+          "100": "WBTUUD-100L1T3"
+        }
+      },
+      {
+        "task": 4,
+        "executor": "divider",
+        "task_title": "Тест 009730",
+        "task_text": [
+          "Преврати число 973 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 973,
+          "steps": 16
+        },
+        "verif_code": {
+          "0": "ZHHNGU-0L1T4",
+          "75": "VMQANK-75L1T4",
+          "100": "LKVTUH-100L1T4"
+        }
+      },
+      {
+        "task": 5,
+        "executor": "divider",
+        "task_title": "Тест 201636",
+        "task_text": [
+          "Преврати число 2016 в число 36 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 36,
+          "minus": 1,
+          "divide": 2,
+          "start": 2016,
+          "steps": 32
+        },
+        "verif_code": {
+          "0": "VTAGLV-0L1T5",
+          "75": "RVMFLE-75L1T5",
+          "100": "AHFTSR-100L1T5"
+        }
+      },
+      {
+        "task": 6,
+        "executor": "divider",
+        "task_title": "Тест 199616",
+        "task_text": [
+          "Преврати число 1996 в число 16 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 16,
+          "minus": 1,
+          "divide": 2,
+          "start": 1996,
+          "steps": 23
+        },
+        "verif_code": {
+          "0": "LQPMFY-0L1T6",
+          "75": "QMKCZX-75L1T6",
+          "100": "NPKHFQ-100L1T6"
+        }
+      },
+      {
+        "task": 7,
+        "executor": "divider",
+        "task_title": "Тест 202323",
+        "task_text": [
+          "Преврати число 2023 в число 23 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 23,
+          "minus": 1,
+          "divide": 2,
+          "start": 2023,
+          "steps": 18
+        },
+        "verif_code": {
+          "0": "BCGCJV-0L1T7",
+          "75": "KWDFCD-75L1T7",
+          "100": "IRWSGA-100L1T7"
+        }
+      },
+      {
+        "task": 8,
+        "executor": "divider",
+        "task_title": "Тест 201689",
+        "task_text": [
+          "Преврати число 2016 в число 89 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 89,
+          "minus": 1,
+          "divide": 2,
+          "start": 2016,
+          "steps": 41
+        },
+        "verif_code": {
+          "0": "PPISRI-0L1T8",
+          "75": "EBPPYD-75L1T8",
+          "100": "UWLFQB-100L1T8"
+        }
+      },
+      {
+        "task": 9,
+        "executor": "divider",
+        "task_title": "Тест 227119",
+        "task_text": [
+          "Преврати число 2271 в число 19 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 19,
+          "minus": 1,
+          "divide": 2,
+          "start": 2271,
+          "steps": 27
+        },
+        "verif_code": {
+          "0": "SBGUXY-0L1T9",
+          "75": "CPEGNR-75L1T9",
+          "100": "JHQVAZ-100L1T9"
+        }
+      },
+      {
+        "task": 10,
+        "executor": "divider",
+        "task_title": "Тест 510311",
+        "task_text": [
+          "Преврати число 5103 в число 11 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 11,
+          "minus": 1,
+          "divide": 2,
+          "start": 5103,
+          "steps": 23
+        },
+        "verif_code": {
+          "0": "TADRNQ-0L1T10",
+          "75": "GUUKGX-75L1T10",
+          "100": "NYYTNI-100L1T10"
+        }
+      }
+    ]
+  },
+  {
+    "level": 2,
+    "tasks": [
+      {
+        "task": 1,
+        "executor": "divider",
+        "task_title": "Тест 000540",
+        "task_text": [
+          "Преврати число 54 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 54,
+          "steps": 9
+        },
+        "verif_code": {
+          "0": "LWLADM-0L2T1",
+          "75": "ASNXAS-75L2T1",
+          "100": "VKAYNJ-100L2T1"
+        }
+      },
+      {
+        "task": 2,
+        "executor": "divider",
+        "task_title": "Тест 052052",
+        "task_text": [
+          "Преврати число 520 в число 52 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 52,
+          "minus": 1,
+          "divide": 2,
+          "start": 520,
+          "steps": 16
+        },
+        "verif_code": {
+          "0": "UTZCUU-0L2T2",
+          "75": "OHJLSG-75L2T2",
+          "100": "VZDTXM-100L2T2"
+        }
+      },
+      {
+        "task": 3,
+        "executor": "divider",
+        "task_title": "Тест 004010",
+        "task_text": [
+          "Преврати число 401 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 401,
+          "steps": 12
+        },
+        "verif_code": {
+          "0": "TZMIXH-0L2T3",
+          "75": "AWPMNF-75L2T3",
+          "100": "OSQTOK-100L2T3"
+        }
+      },
+      {
+        "task": 4,
+        "executor": "divider",
+        "task_title": "Тест 003790",
+        "task_text": [
+          "Преврати число 379 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 379,
+          "steps": 15
+        },
+        "verif_code": {
+          "0": "LFRAKD-0L2T4",
+          "75": "EJWNKK-75L2T4",
+          "100": "WEKZHF-100L2T4"
+        }
+      },
+      {
+        "task": 5,
+        "executor": "divider",
+        "task_title": "Тест 110213",
+        "task_text": [
+          "Преврати число 1102 в число 13 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 13,
+          "minus": 1,
+          "divide": 2,
+          "start": 1102,
+          "steps": 13
+        },
+        "verif_code": {
+          "0": "LSCOZH-0L2T5",
+          "75": "FVLHSW-75L2T5",
+          "100": "UMCOBN-100L2T5"
+        }
+      },
+      {
+        "task": 6,
+        "executor": "divider",
+        "task_title": "Тест 160616",
+        "task_text": [
+          "Преврати число 1606 в число 16 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 16,
+          "minus": 1,
+          "divide": 2,
+          "start": 1606,
+          "steps": 17
+        },
+        "verif_code": {
+          "0": "JFMRBI-0L2T6",
+          "75": "LAACDN-75L2T6",
+          "100": "HPTLPA-100L2T6"
+        }
+      },
+      {
+        "task": 7,
+        "executor": "divider",
+        "task_title": "Тест 302032",
+        "task_text": [
+          "Преврати число 3020 в число 32 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 32,
+          "minus": 1,
+          "divide": 2,
+          "start": 3020,
+          "steps": 23
+        },
+        "verif_code": {
+          "0": "UORBOW-0L2T7",
+          "75": "SSVNYQ-75L2T7",
+          "100": "MELLQP-100L2T7"
+        }
+      },
+      {
+        "task": 8,
+        "executor": "divider",
+        "task_title": "Тест 206145",
+        "task_text": [
+          "Преврати число 2061 в число 45 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 45,
+          "minus": 1,
+          "divide": 2,
+          "start": 2061,
+          "steps": 27
+        },
+        "verif_code": {
+          "0": "LAFRVL-0L2T8",
+          "75": "LDZKUN-75L2T8",
+          "100": "OCDNIN-100L2T8"
+        }
+      },
+      {
+        "task": 9,
+        "executor": "divider",
+        "task_title": "Тест 238455",
+        "task_text": [
+          "Преврати число 2384 в число 55 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 55,
+          "minus": 1,
+          "divide": 2,
+          "start": 2384,
+          "steps": 25
+        },
+        "verif_code": {
+          "0": "ZKRDDO-0L2T9",
+          "75": "IVZKIL-75L2T9",
+          "100": "MVJOFK-100L2T9"
+        }
+      },
+      {
+        "task": 10,
+        "executor": "divider",
+        "task_title": "Тест 355090",
+        "task_text": [
+          "Преврати число 3550 в число 90 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 90,
+          "minus": 1,
+          "divide": 2,
+          "start": 3550,
+          "steps": 29
+        },
+        "verif_code": {
+          "0": "HTSKSP-0L2T10",
+          "75": "PLKGNI-75L2T10",
+          "100": "DCWCJX-100L2T10"
+        }
+      }
+    ]
+  },
+  {
+    "level": 3,
+    "tasks": [
+      {
+        "task": 1,
+        "executor": "doubler",
+        "task_title": "Эксперт 1",
+        "task_text": [
+          "Преврати число 0 в число 10000 за минимальное количество действий."
+        ],
+        "params": {
+          "start": 0,
+          "plus": 1,
+          "multi": 2,
+          "end": 10000,
+          "steps": 18
+        },
+        "verif_code": {
+          "0": "YPBATC-0L3T1",
+          "75": "OBKZCE-75L3T1",
+          "100": "QWJZTT-100L3T1"
+        }
+      },
+      {
+        "task": 2,
+        "executor": "doubler",
+        "task_title": "Эксперт 2",
+        "task_text": [
+          "Преврати число 5 в число 10547 за минимальное количество действий."
+        ],
+        "params": {
+          "start": 5,
+          "plus": 1,
+          "multi": 2,
+          "end": 10547,
+          "steps": 16
+        },
+        "verif_code": {
+          "0": "RQSFKR-0L3T2",
+          "75": "STULVH-75L3T2",
+          "100": "XETTTL-100L3T2"
+        }
+      },
+      {
+        "task": 3,
+        "executor": "doubler",
+        "task_title": "Эксперт 3",
+        "task_text": [
+          "Преврати число 35 в число 20578 за минимальное количество действий."
+        ],
+        "params": {
+          "start": 35,
+          "plus": 1,
+          "multi": 2,
+          "end": 20578,
+          "steps": 17
+        },
+        "verif_code": {
+          "0": "TCXHHE-0L3T3",
+          "75": "MRCMPU-75L3T3",
+          "100": "QTNZQU-100L3T3"
+        }
+      },
+      {
+        "task": 4,
+        "executor": "doubler",
+        "task_title": "Эксперт 4",
+        "task_text": [
+          "Преврати число 56 в число 92589 за минимальное количество действий."
+        ],
+        "params": {
+          "start": 56,
+          "plus": 1,
+          "multi": 2,
+          "end": 92589,
+          "steps": 50
+        },
+        "verif_code": {
+          "0": "ASLGDB-0L3T4",
+          "75": "YBVSXL-75L3T4",
+          "100": "DCWIXH-100L3T4"
+        }
+      },
+      {
+        "task": 5,
+        "executor": "doubler",
+        "task_title": "Эксперт 5",
+        "task_text": [
+          "Преврати число 101 в число 502452 за минимальное количество действий."
+        ],
+        "params": {
+          "start": 101,
+          "plus": 1,
+          "multi": 2,
+          "end": 502452,
+          "steps": 39
+        },
+        "verif_code": {
+          "0": "VJBDCB-0L3T5",
+          "75": "BIASJI-75L3T5",
+          "100": "PSIOOG-100L3T5"
+        }
+      }
+    ]
+  },
+  {
+    "level": 4,
+    "tasks": [
+      {
+        "task": 1,
+        "executor": "divider",
+        "task_title": "Испытание №4.1",
+        "task_text": [
+          "Внезапно у Поделителя поменялись операции!",
+          "Теперь он может только делить на 2 и прибавлять 1.",
+          "С помощью нового исполнителя получите из числа 285 число 11 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 11,
+          "minus": -1,
+          "divide": 2,
+          "start": 285,
+          "steps": 11
+        },
+        "verif_code": {
+          "0": "PYTWKE-0L4T1",
+          "75": "ERZGSH-75L4T1",
+          "100": "XBAHFM-100L4T1"
+        }
+      },
+      {
+        "task": 2,
+        "executor": "divider",
+        "task_title": "Испытание №4.2",
+        "task_text": [
+          "Поделитель всё ещё может только делить на 2 и прибавлять 1.",
+          "С помощью нового исполнителя получите из числа 341 число 20 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 20,
+          "minus": -1,
+          "divide": 2,
+          "start": 341,
+          "steps": 26
+        },
+        "verif_code": {
+          "0": "LUFYNS-0L4T2",
+          "75": "FTMDLG-75L4T2",
+          "100": "TWEQQS-100L4T2"
+        }
+      }
+    ]
+  },
+  {
+    "level": 5,
+    "tasks": [
+      {
+        "task": 1,
+        "executor": "divider",
+        "task_title": "Проверим раз",
+        "task_text": [
+          "Преврати число 651 в число 10 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 10,
+          "minus": 1,
+          "divide": 2,
+          "start": 651,
+          "steps": 9
+        },
+        "verif_code": {
+          "0": "HAUAQM-0L5T1",
+          "75": "ECOUBW-75L5T1",
+          "100": "FTNGUV-100L5T1"
+        }
+      },
+      {
+        "task": 2,
+        "executor": "divider",
+        "task_title": "Проверим ещё раз",
+        "task_text": [
+          "Преврати число 49 в число 0 за минимальное количество действий."
+        ],
+        "params": {
+          "end": 0,
+          "minus": 1,
+          "divide": 2,
+          "start": 49,
+          "steps": 8
+        },
+        "verif_code": {
+          "0": "WTWTBO-0L5T2",
+          "75": "ONHSYW-75L5T2",
+          "100": "QTBWPC-100L5T2"
+        }
+      },
+      {
+        "task": 3,
+        "executor": "doubler",
+        "task_title": "И проверим ещё один раз",
+        "task_text": [
+          "Преврати число 13 в число 873 за минимальное количество действий."
+        ],
+        "params": {
+          "start": 13,
+          "plus": 1,
+          "multi": 2,
+          "end": 873,
+          "steps": 9
+        },
+        "verif_code": {
+          "0": "KIKVIZ-0L5T3",
+          "75": "JPQIGW-75L5T3",
+          "100": "HOIPUR-100L5T3"
+        }
+      }
+    ]
+  }
+]
