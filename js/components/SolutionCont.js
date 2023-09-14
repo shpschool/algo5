@@ -1,5 +1,48 @@
 export default {
     props: ['solution', 'verifCode', 'points', 'checkSolution', 'show', 'clean', 'back', 'repeat', 'solutionLength'],
+    computed: {
+        renderSolution() {
+            let arr = [];
+            let repeatCom = 1;
+            let savedValue, win;
+            for (let i=0; i < this.solution.length; i++) {
+                let com = this.solution[i];
+                let text = com.text;
+                if (!text) {
+                    let prevCom = this.solution[i-1];
+                    if (prevCom && prevCom.command === com.command) {
+                        repeatCom++;
+                        if (repeatCom === 2) {
+                            savedValue = prevCom.prevValue;
+                        }
+                        text = `${savedValue}${com.command} (x${repeatCom}) -> ${com.value}`;
+                    } else {
+                        repeatCom = 1;
+                        text = `${com.prevValue}${com.command} -> ${com.value}`;
+                    }
+                } else if (com.value !== undefined) {
+                    let prevCom = this.solution[i-1];
+                    if (prevCom && prevCom.text === com.text && !win) {
+                        repeatCom++;
+                        text += ` (x${repeatCom})`;
+                        if (com.win) {
+                            win = true;
+                        }
+                    } else {
+                        repeatCom = 1;
+                        win = false;
+                    }
+                    text += com.win;
+                }
+                if (repeatCom === 1) {
+                    arr.push(text);
+                } else {
+                    arr[arr.length - 1] = text;
+                } 
+            }
+            return arr;
+        }
+    },
     template: `
     <div class="solution-cont colomn-cont right-content">
         <div class="solution-head inline-cont">
@@ -12,7 +55,7 @@ export default {
         </div>
         <hr>
         <div class="solution-field">
-            <span class="command" v-for="(com, index) in solution" :key=index>{{com.text}}</span>
+            <span class="command" v-for="(com, index) in renderSolution" :key=index>{{com}}</span>
         </div>
         <div class="inline-cont">
             <button class="btn-main" @click="checkSolution">Проверить решение</button>

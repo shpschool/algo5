@@ -5,20 +5,20 @@ export default {
         // команды Удвоителя
         plus() {
             this.$emit('changeCurrentValue', this.currentValue + this.args.plus);
-            this.$emit('addCommandToSolution', `${this.currentValue} -> +${this.args.plus}`);
+            this.$emit('addCommandToSolution', [this.currentValue, ` -> +${this.args.plus}`]);
         },
         multi() {
             this.$emit('changeCurrentValue', this.currentValue * this.args.multi);
-            this.$emit('addCommandToSolution', `${this.currentValue} -> x${this.args.multi}`)
+            this.$emit('addCommandToSolution', [this.currentValue, ` -> x${this.args.multi}`])
         },
         // команды Поделителя
         minus() {
             this.$emit('changeCurrentValue', this.currentValue - this.args.minus);
-            this.$emit('addCommandToSolution', `${this.currentValue} -> -${this.args.minus}`)
+            this.$emit('addCommandToSolution', [this.currentValue, ` -> -${this.args.minus}`])
         },
         divide() {
             this.$emit('changeCurrentValue', this.currentValue / this.args.divide);
-            this.$emit('addCommandToSolution', `${this.currentValue} -> :${this.args.divide}`)
+            this.$emit('addCommandToSolution', [this.currentValue, ` -> :${this.args.divide}`])
         },
         // команды Кузнечика
         forward() {

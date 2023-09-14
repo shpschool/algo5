@@ -98,14 +98,14 @@ export default {
         },
         addCommandToSolution(command) {
             if (this.executor === 'doubler' || this.executor === 'divider') {
-                this.solution.push({'text': command + ' -> ' + this.currentValue, 'value': this.currentValue});
+                this.solution.push({'prevValue': command[0], 'command': command[1], 'value': this.currentValue});
             } else if (this.executor === 'aquarius') {
                 command += this.isTarget(this.currVolumeA, 'A');
                 command += this.isTarget(this.currVolumeB, 'B');
                 this.solution.push({'text': command, 'valueA': this.currVolumeA, 'valueB': this.currVolumeB});
             } else if (this.executor === 'grasshopper') {
-                command.text += this.isTarget(this.currentValue);
-                this.solution.push({'text': command.text, 'value': this.currentValue, 'len': command.len})
+                let win = this.isTarget(this.currentValue);
+                this.solution.push({'text': command.text, 'value': this.currentValue, 'len': command.len, 'win': win})
             }
             this.changeSolLen();
             this.deleteArr = [];

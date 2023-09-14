@@ -351,6 +351,12 @@ progress.volume-progress.done::-webkit-progress-value {
     flex-direction: column;
     align-items: start;
     overflow-y: scroll;
+    -ms-user-select: all;
+    -moz-user-select: all;
+    -khtml-user-select: all;
+    -webkit-user-select: all;
+    user-select: all;
+    cursor: pointer;
 }
 .command {
     margin: 2px 20px;
