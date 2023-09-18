@@ -80,3 +80,15 @@ textarea.field {
     user-select: all;
     cursor: pointer;
 }
+
+.cancel {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.level-header, .task-header {
+    display: flex;
+    align-items: center;
+}

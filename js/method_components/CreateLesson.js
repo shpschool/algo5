@@ -12,15 +12,40 @@ export default {
     data() {return {
         code: [],
         levels: 0,
+        lesson: 0,
     }},
     emits: ['back'],
+    watch: {
+        lesson() {
+            this.code = [];
+            this.levels = 0;
+        }
+    },
     methods: {
+        changeNumbers() {
+            let levelNumber = 0;
+            let number = 0;
+            this.code.forEach(level => {
+                let taskNumber = 0;
+                levelNumber++;
+                level.level = levelNumber;
+                level.tasks.forEach(el => {
+                    taskNumber++;
+                    el.task = taskNumber;
+                    number++;
+                    el.verif_code["0"] = el.verif_code["0"].slice(0, -1) + number;
+                    el.verif_code["75"] = el.verif_code["75"].slice(0, -1) + number;
+                    el.verif_code["100"] = el.verif_code["100"].slice(0, -1) + number;
+                })
+            })
+        },
         createLevel() {
             this.levels++;
             this.code.push({
                 "level": this.levels,
                 "tasks": []
             });
+            this.changeNumbers();
         },
         createTask(level) {
             let number = this.code[level-1].tasks.length + 1;
@@ -31,11 +56,21 @@ export default {
                 "task_text": [""],
                 "params": {},
                 "verif_code": {
-                    "0": generateRandomString(6) + `-0L${level}T${number}`,
-                    "75": generateRandomString(6) + `-75L${level}T${number}`,
-                    "100": generateRandomString(6) + `-100L${level}T${number}`
+                    "0": generateRandomString(6) + `-0L${this.lesson}T${number}`,
+                    "75": generateRandomString(6) + `-75L${this.lesson}T${number}`,
+                    "100": generateRandomString(6) + `-100L${this.lesson}T${number}`
                 }
             });
+            this.changeNumbers();
+        },
+        deleteItem(name, item, level=null) {
+            if (name === 'level') {
+                this.code.splice(this.code.indexOf(item), 1);
+                console.log(this.code);
+            } else if (name === 'task') {
+                this.code.find(el => el === level).tasks.splice(this.code.find(el => el === level).tasks.indexOf(item), 1);
+            }
+            this.changeNumbers();
         },
         changeTaskText(task, text) {
             task.task_text = text.split('\n');
@@ -77,10 +112,20 @@ export default {
     <a @click="$emit('back')" class="btn-back">На главную</a>
     <div class="method-cont">
         <div class="editor">
-            <div v-for="level in code" :key="level.level" class="level-cont">
-                <h3>Шаг {{level.level}}</h3>
+            <div>
+                <label class="inline" for="lesson">Введите номер создаваемого урока:</label>
+                <input v-model="lesson" class="field" name="lesson">
+            </div>
+            <div v-if="lesson > 0" v-for="level in code" :key="level.level" class="level-cont">
+                <div class="level-header">
+                    <img src="assets/cancel.png" class="cancel" @click="deleteItem('level', level)">
+                    <h3>Шаг {{level.level}}</h3>
+                </div>
                 <div v-for="task in level.tasks" :key="task.task" class="task-cont">
-                    <h4>Задача {{task.task}}</h4>
+                    <div class="task-header">
+                        <img src="assets/cancel.png" class="cancel" @click="deleteItem('task', task, level)">
+                        <h4>Задача {{task.task}}</h4>
+                    </div>
                     <select v-model="task.executor" class="field" @change="changeCode(task)">
                         <option value="" disabled selected hidden>Выберите исполнителя</option>
                         <option value="doubler">Удвоитель</option>
@@ -224,7 +269,7 @@ export default {
                 </div>
                 <button class="btn-main" @click="createTask(level.level)">Создать задачу</button>
             </div>
-            <button @click="createLevel" class="btn-main">Создать шаг</button>
+            <button v-if="lesson > 0" @click="createLevel" class="btn-main">Создать шаг</button>
         </div>
         <div class="code-cont">
             <pre>{{code}}</pre>

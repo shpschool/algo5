@@ -22,13 +22,25 @@ if (path.searchParams.get('lesson')) {
                 if (this.access == pass) {
                     this.accessStatus = true;
                     this.error = false;
+                    localStorage.setItem('methodPassword', 'correct');
                 } else {
                     this.accessStatus = false;
                     this.error = true;
+                    localStorage.setItem('methodPassword', 'incorrect');
                 }
+                console.log(localStorage.getItem('methodPassword'));
             },
             back() {
                 this.page = ''
+            },
+            checkSessionAccess() {
+                console.log(localStorage.getItem('methodPassword'));
+                if (localStorage.getItem('methodPassword') === 'correct') {
+                    this.accessStatus = true;
+                    this.error = false;
+                    return true;
+                }
+                return false;
             },
         },
         created() {
@@ -45,7 +57,7 @@ if (path.searchParams.get('lesson')) {
                 <h1 v-else class="right-content">СТРАНИЦА МЕТОДИСТА</h1>
             </div>
         </div>
-        <div v-if="!accessStatus" class="colomn-cont">
+        <div v-if="!accessStatus && !checkSessionAccess()" class="colomn-cont">
             <h3>Вход для методистов:</h3>
             <input type="password" v-model="access" class="field">
             <span v-if="error" class="error">Неверный пароль</span>
