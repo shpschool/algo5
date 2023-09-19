@@ -63,7 +63,7 @@ export default {
         </div>
         <div class="colomn-cont" v-if="show">
             <span class="line">Балл: <span class="bold">{{points}}</span>/100</span>
-            <span class="line">Код для проверки преподавателем: <span class="bold">{{verifCode[points]}}</span></span>
+            <span class="line">Код для проверки преподавателем: <span class="bold">{{verifCode[points]}}_{{solutionLength}}</span></span>
         </div>
     </div>
     `
