@@ -29,6 +29,7 @@ textarea.field {
     display: flex;
     flex-direction: column;
     padding: 15px;
+    box-sizing: border-box;
 }
 .editor h3 {
     color: var(--main);
@@ -55,30 +56,48 @@ textarea.field {
     border: 0px;
     border-radius: 10px;
     padding: 10px 15px;
+    box-sizing: border-box;
 }
 .task-cont {
     margin-bottom: 10px;
     border: 1px dashed var(--dark-grey);
     border-radius: 10px;
     padding: 10px 15px;
+    box-sizing: border-box;
 }
 
-.code-cont {
+.code-wrap {
     width: 38%;
+    height: fit-content;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.cont-right-align {
+    text-align: right;
+    width: 100%;
+}
+.code-wrap a.btn-main {
+    text-decoration: none;
+}
+.code-wrap a.btn-main:hover {
+    text-decoration: none;
+}
+.code-wrap a.btn-main:visited {
+    text-decoration: none;
+}
+.code-cont {
+    width: 100%;
     height: fit-content;
     background-color: var(--grey77);
     border: 0px;
     border-radius: 15px;
     padding: 15px 30px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    overflow: auto;
 }
 .code-cont pre {
     font-family: 'Courier New', Courier, monospace;
-    -ms-user-select: all;
-    -moz-user-select: all;
-    -khtml-user-select: all;
-    -webkit-user-select: all;
-    user-select: all;
-    cursor: pointer;
 }
 
 .cancel {

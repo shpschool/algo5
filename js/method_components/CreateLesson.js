@@ -106,6 +106,11 @@ export default {
                 }
             }
         },
+        saveFileJSON(btn) {
+            let fileBlob = new Blob([JSON.stringify(this.code, null, 4)], {type: 'application/json'});
+            btn.setAttribute('href', URL.createObjectURL(fileBlob));
+            btn.setAttribute('download', `lesson${this.lesson}.json`);
+        },
     },
     template: `
     <h1>Создание занятия</h1>
@@ -271,8 +276,13 @@ export default {
             </div>
             <button v-if="lesson > 0" @click="createLevel" class="btn-main">Создать шаг</button>
         </div>
-        <div class="code-cont">
-            <pre>{{code}}</pre>
+        <div class="code-wrap">
+            <div class="cont-right-align">
+                <a class="btn-main" @click="e => saveFileJSON(e.target)">Сохранить json</a>
+            </div>
+            <div class="code-cont">
+                <pre>{{code}}</pre>
+            </div>
         </div>
     </div>
     `

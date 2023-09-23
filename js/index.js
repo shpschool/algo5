@@ -42,6 +42,13 @@ if (path.searchParams.get('lesson')) {
                 }
                 return false;
             },
+            exit() {
+                localStorage.removeItem('methodPassword');
+                this.access = '';
+                this.accessStatus = false;
+                this.error = false;
+                this.page = '';
+            }
         },
         created() {
             document.title = 'Главная';
@@ -55,6 +62,7 @@ if (path.searchParams.get('lesson')) {
                 </span>
                 <h1 v-if="!accessStatus" class="right-content">ГЛАВНАЯ</h1>
                 <h1 v-else class="right-content">СТРАНИЦА МЕТОДИСТА</h1>
+                <button v-if="accessStatus" class="btn-exit" @click="exit">Выйти</button>
             </div>
         </div>
         <div v-if="!accessStatus && !checkSessionAccess()" class="colomn-cont">

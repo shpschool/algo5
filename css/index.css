@@ -74,6 +74,13 @@ button:focus {
 .btn-back:hover {
     text-decoration: underline;
 }
+.btn-exit {
+    background-color: var(--transparent);
+    border: 0px;
+    color: var(--light);
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .inline-cont {
     width: 100%;
@@ -367,6 +374,14 @@ progress.volume-progress.done::-webkit-progress-value {
     margin: 5px 0px;
 }
 .bold {font-weight: bold;}
+.prep-code {
+    -ms-user-select: all;
+    -moz-user-select: all;
+    -khtml-user-select: all;
+    -webkit-user-select: all;
+    user-select: all;
+    cursor: pointer;
+}
 
 /* модалка "Создание процедуры" */
 .modal-wrap {
@@ -418,14 +433,15 @@ progress.volume-progress.done::-webkit-progress-value {
 }
 
 /* scrollbar */
-::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 7px;
+    height: 7px;
     background-color: var(--transparent);
 }
-::-webkit-scrollbar-track {
-    width: 0px;
+*::-webkit-scrollbar-track {
+    background-color: var(--transparent);
 }
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     border-radius: 7px;
     background-color: var(--light-main);
     border: 0px;
