@@ -71,7 +71,7 @@ export default {
                     } 
                 }
             }
-            sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 30}, {}, {wch: 10}];
+            sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 22}, {wch: 22}, {wch: 10}];
         },
         mergeCells(len) {
             let merge = [];
