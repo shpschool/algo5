@@ -16,6 +16,12 @@
 textarea.field {
     resize: vertical;
 }
+.wide-block {
+    display: block;
+    width: 20%;
+    min-width: 200px;
+    margin: 10px 0px;
+}
 
 .method-cont {
     width: 90%;

@@ -30,6 +30,7 @@ export default {
     data() {
         return {
             lessons: [],
+            fileNames: {},
         }
     },
     emits: ['back'],
@@ -168,7 +169,7 @@ export default {
             }
             return "";
         },
-        async downloadExcel(lesson, ind) {
+        async downloadExcel(lesson, fileName, ind) {
             let book = [["№", "Название", "Вариант", "Код", "Алгоритм", "Шагов"]];
             let num = 1;
             for (let i = 0; i < lesson.length; i++) {
@@ -189,7 +190,11 @@ export default {
             let workbook = XLSX.utils.book_new();
             workbook.SheetNames.push("Коды");
             workbook.Sheets["Коды"] = worksheet;
-            XLSX.writeFile(workbook, `lesson${ind}.xlsx`);
+            if (fileName.trim()) {
+                XLSX.writeFile(workbook, `${fileName.trim()}.xlsx`);
+            } else {
+                this.fileNames[ind] = '';
+            }
         },
     },
     async created() {
@@ -218,7 +223,12 @@ export default {
                 <h2>Занятие {{ind + 1}}</h2>
             </div>
             <div class="accordion-body">
-                <button class="btn-save" @click="downloadExcel(lesson, ind+1)">Скачать коды занятия</button>
+                <div>
+                    <label for="file-name">Чтобы скачать файл, введите название файла:</label>
+                    <input name="file-name" v-model="fileNames[ind]" class="field wide-block">
+                    <p class="error" v-if="fileNames[ind] === ''">Название файла не может быть пустым.</p>
+                    <button class="btn-save" @click="downloadExcel(lesson, fileNames[ind], ind)">Скачать коды занятия</button>
+                </div>
                 <div v-for="level in lesson" class="step">
                     <h3>Шаг {{level.level}}</h3>
                     <ul v-for="task in level.tasks" class="task">
