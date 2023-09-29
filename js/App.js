@@ -96,13 +96,22 @@ export default {
             }
             return command;
         },
+        formatVolume(volume, value) {
+            let padNum = 1;
+            if (volume >= 10) padNum = 2;
+            if (volume >= 100) padNum = 3;
+            let currVal = value.toString().padStart(padNum);
+            return currVal;
+        },
         addCommandToSolution(command) {
             if (this.executor === 'doubler' || this.executor === 'divider') {
                 this.solution.push({'prevValue': command[0], 'command': command[1], 'value': this.currentValue});
             } else if (this.executor === 'aquarius') {
                 command += this.isTarget(this.currVolumeA, 'A');
                 command += this.isTarget(this.currVolumeB, 'B');
-                this.solution.push({'text': command, 'valueA': this.currVolumeA, 'valueB': this.currVolumeB});
+                let currA = this.formatVolume(this.volumeA, this.currVolumeA);
+                let currB = this.formatVolume(this.volumeB, this.currVolumeB);
+                this.solution.push({'text': `A = ${currA}, B = ${currB} | ${command}`, 'valueA': this.currVolumeA, 'valueB': this.currVolumeB});
             } else if (this.executor === 'grasshopper') {
                 let win = this.isTarget(this.currentValue);
                 this.solution.push({'text': command.text, 'value': this.currentValue, 'len': command.len, 'win': win})

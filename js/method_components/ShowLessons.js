@@ -1,31 +1,5 @@
 import "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
 
-const styling = {
-    headerStyle: {
-        font: { bold: true, name: "Arial", sz: "10"},
-        alignment: {vertical: "center", horizontal: "center", wrapText: true},
-        border: { bottom: { style: 'thin', color: { rgb: '00000000' } } },
-    },
-    cellStyle: {
-        font: {name: "Arial", sz: "10"},
-        alignment: {vertical: "center", wrapText: true}
-    },
-    vhCellStyle: {
-        font: {name: "Arial", sz: "10"},
-        alignment: {vertical: "center", horizontal: "center", wrapText: true}
-    },
-    lastCellStyle: {
-        font: {name: "Arial", sz: "10"},
-        alignment: {vertical: "center", wrapText: true},
-        border: { bottom: { style: 'thin', color: { rgb: '00000000' } } },
-    },
-    lastCell2Style: {
-        font: {name: "Arial", sz: "10"},
-        alignment: {vertical: "center", horizontal: "center", wrapText: true},
-        border: { bottom: { style: 'thin', color: { rgb: '00000000' } } },
-    }
-};
-
 export default {
     data() {
         return {
@@ -52,24 +26,26 @@ export default {
             header.closest('.accordion-item').classList.toggle('show');
         },
         styleSheet(sheet, len) {
-            for (let i = 0; i < 6; i++) {
-                sheet[XLSX.utils.encode_cell({r:0, c:i})].s = styling.headerStyle;
-            }
             sheet["!rows"] = [{}];
-            for (let row = 1; row < len; row++) {
-                sheet["!rows"].push({hpt: 25})
+            for (let row = 0; row < len; row++) {
+                if (row !== 0) sheet["!rows"].push({hpt: 25});
                 for (let i = 0; i < 6; i++) {
+                    sheet[XLSX.utils.encode_cell({r:row, c:i})].s = {
+                        font: {name: "Arial", sz: "10"},
+                        alignment: {vertical: "center", wrapText: true}
+                    };
+                    if (row === 0) {
+                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.font.bold = true;
+                    }
                     if (row % 3 === 0) {
-                        if (i === 2) {
-                            sheet[XLSX.utils.encode_cell({r:row, c:i})].s = styling.lastCell2Style;
-                        } else {
-                            sheet[XLSX.utils.encode_cell({r:row, c:i})].s = styling.lastCellStyle;
-                        }
-                    } else if (i === 2 || i === 5) {
-                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s = styling.vhCellStyle;
-                    } else {
-                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s = styling.cellStyle;
+                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.border = { bottom: { style: 'thin', color: { rgb: '00000000' } } };
                     } 
+                    if (i === 2 || i === 5 || row === 0) {
+                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.alignment.horizontal = "center";
+                    }
+                    if (i === 4) {
+                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.font.name = "Consolas";
+                    }
                 }
             }
             sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 22}, {wch: 22}, {wch: 10}];
@@ -86,6 +62,13 @@ export default {
                 }
             }
             return merge;
+        },
+        formatVolume(volume, value) {
+            let padNum = 1;
+            if (volume >= 10) padNum = 2;
+            if (volume >= 100) padNum = 3;
+            let currVal = value.toString().padStart(padNum);
+            return currVal;
         },
         makeAlgorithm(exec, params) {
             if (exec === "divider") {
@@ -136,8 +119,8 @@ export default {
                         steps += 1
                         if (A === 0) {
                             A = a
-                            if (a === params.volumeA) solution.push(`${steps}. A = ${A}, B = ${B} | наполнить А`);
-                            if (a === params.volumeB) solution.push(`${steps}. A = ${B}, B = ${A} | наполнить B`);
+                            if (a === params.volumeA) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(a, A)}, B = ${this.formatVolume(b, B)} | наполнить А`);
+                            if (a === params.volumeB) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(b, B)}, B = ${this.formatVolume(a, A)} | наполнить B`);
                         } else if (B !== b) {
                             if (b - B > 0 && b - B <= A) {
                                 x = b - B;
@@ -146,12 +129,12 @@ export default {
                             }
                             B += x;
                             A -= x;
-                            if (a === params.volumeA) solution.push(`${steps}. A = ${A}, B = ${B} | перелить из А в В`);
-                            if (a === params.volumeB) solution.push(`${steps}. A = ${B}, B = ${A} | перелить из B в A`);
+                            if (a === params.volumeA) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(a, A)}, B = ${this.formatVolume(b, B)} | перелить из А в В`);
+                            if (a === params.volumeB) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(b, B)}, B = ${this.formatVolume(a, A)} | перелить из B в A`);
                         } else if (B === b) {
                             B = 0;
-                            if (a === params.volumeA) solution.push(`${steps}. A = ${A}, B = ${B} | опустошить В`);
-                            if (a === params.volumeB) solution.push(`${steps}. A = ${B}, B = ${A} | опустошить A`);
+                            if (a === params.volumeA) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(a, A)}, B = ${this.formatVolume(b, B)} | опустошить В`);
+                            if (a === params.volumeB) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(b, B)}, B = ${this.formatVolume(a, A)} | опустошить A`);
                         }
                         if (goals.includes(A) && !goalsCheck.includes(A)) {
                             goalsCheck[goals.indexOf(A)] = A;
@@ -190,7 +173,7 @@ export default {
             let workbook = XLSX.utils.book_new();
             workbook.SheetNames.push("Коды");
             workbook.Sheets["Коды"] = worksheet;
-            if (fileName.trim()) {
+            if (fileName && fileName.trim()) {
                 XLSX.writeFile(workbook, `${fileName.trim()}.xlsx`);
             } else {
                 this.fileNames[ind] = '';

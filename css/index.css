@@ -368,6 +368,7 @@ progress.volume-progress.done::-webkit-progress-value {
 .command {
     margin: 2px 20px;
     font-family: "Consolas", monospace;
+    white-space: pre;
 }
 .line {
     width: 98%;
