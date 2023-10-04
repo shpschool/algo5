@@ -1,0 +1,384 @@
+[
+    {
+        "level": 1,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Убрать воду - 1",
+                "task_text": [
+                    "<i>Вот вам две ёмкости, отмерьте мне несколько раз во-от это вещество. Оно выведет всю воду из твоего робота.</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 5 литров, ёмкость B — 8 литров.",
+                    "Получите в любой ёмкости 2 литра."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 5,
+                    "volumeB": 8,
+                    "target": [
+                        2
+                    ],
+                    "steps": 4
+                },
+                "verif_code": {
+                    "0": "MHYKEU-0L5T1",
+                    "75": "YQSBHJ-75L5T1",
+                    "100": "YAGNUN-100L5T1"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "aquarius",
+                "task_title": "Убрать воду - 2",
+                "task_text": [
+                    "Ёмкость А вмещает 5 литров, ёмкость B — 8 литров.",
+                    "Получите в любой ёмкости 2 литра."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 5,
+                    "volumeB": 8,
+                    "target": [
+                        7
+                    ],
+                    "steps": 8
+                },
+                "verif_code": {
+                    "0": "GYWPUG-0L5T2",
+                    "75": "AHLKXE-75L5T2",
+                    "100": "EUYMVE-100L5T2"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "aquarius",
+                "task_title": "Убрать воду - 3",
+                "task_text": [
+                    "Ёмкость А вмещает 5 литров, ёмкость B — 8 литров.",
+                    "Получите в любой ёмкости 4 литра."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 5,
+                    "volumeB": 8,
+                    "target": [
+                        4
+                    ],
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "FSWWIV-0L5T3",
+                    "75": "OWUMJO-75L5T3",
+                    "100": "CKUQOD-100L5T3"
+                }
+            },
+            {
+                "task": 4,
+                "executor": "aquarius",
+                "task_title": "Убрать воду - 4",
+                "task_text": [
+                    "Ёмкость А вмещает 5 литров, ёмкость B — 8 литров.",
+                    "Получите в любой ёмкости 1 литр."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 5,
+                    "volumeB": 8,
+                    "target": [
+                        1
+                    ],
+                    "steps": 8
+                },
+                "verif_code": {
+                    "0": "CDISCA-0L5T4",
+                    "75": "ODNOIQ-75L5T4",
+                    "100": "BEBUOS-100L5T4"
+                }
+            },
+            {
+                "task": 5,
+                "executor": "aquarius",
+                "task_title": "Защитить корпус - 1",
+                "task_text": [
+                    "<i>Что, получилось?",
+                    "Удивительно.",
+                    "Вон там стоит второе вещество. Оно защитит от будущего проникновения воды.</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 7 литров, ёмкость B — 5 литров.",
+                    "Получите в любой ёмкости 3 литра."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 7,
+                    "volumeB": 5,
+                    "target": [
+                        3
+                    ],
+                    "steps": 4
+                },
+                "verif_code": {
+                    "0": "EVVSPH-0L5T5",
+                    "75": "XGVASX-75L5T5",
+                    "100": "TTXLUQ-100L5T5"
+                }
+            },
+            {
+                "task": 6,
+                "executor": "aquarius",
+                "task_title": "Защитить корпус - 2",
+                "task_text": [
+                    "Ёмкость А вмещает 7 литров, ёмкость B — 5 литров.",
+                    "Получите в любой ёмкости 1 литр"
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 7,
+                    "volumeB": 5,
+                    "target": [
+                        1
+                    ],
+                    "steps": 8
+                },
+                "verif_code": {
+                    "0": "WHARVZ-0L5T6",
+                    "75": "BIQZQM-75L5T6",
+                    "100": "KSEXMZ-100L5T6"
+                }
+            },
+            {
+                "task": 7,
+                "executor": "aquarius",
+                "task_title": "Защитить корпус - 3",
+                "task_text": [
+                    "Ёмкость А вмещает 7 литров, ёмкость B — 5 литров.",
+                    "Получите в любой ёмкости 6 литров."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 7,
+                    "volumeB": 5,
+                    "target": [
+                        6
+                    ],
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "NZDNRA-0L5T7",
+                    "75": "CLRHPE-75L5T7",
+                    "100": "BTSION-100L5T7"
+                }
+            },
+            {
+                "task": 8,
+                "executor": "aquarius",
+                "task_title": "Защитить корпус - 4",
+                "task_text": [
+                    "Ёмкость А вмещает 7 литров, ёмкость B — 5 литров.",
+                    "Получите в любой ёмкости 4 литра."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 7,
+                    "volumeB": 5,
+                    "target": [
+                        4
+                    ],
+                    "steps": 6
+                },
+                "verif_code": {
+                    "0": "THSYZM-0L5T8",
+                    "75": "FWNGFI-75L5T8",
+                    "100": "WNAKYV-100L5T8"
+                }
+            }
+        ]
+    },
+    {
+        "level": 2,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Простая задача",
+                "task_text": [
+                    "<i>Вот тебе 4 литра, вот тебе 9 литров. Бери и переливай, чего непонятного-то? Только в этот раз сделай мне всё и сразу!</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 9 литров, ёмкость B — 4 литра.",
+                    "Получите в любой ёмкости 1, 3 и 6 литров."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 9,
+                    "volumeB": 4,
+                    "target": [
+                        1,
+                        3,
+                        6
+                    ],
+                    "steps": 16
+                },
+                "verif_code": {
+                    "0": "FPGUMQ-0L5T9",
+                    "75": "BUTKIN-75L5T9",
+                    "100": "EWUYYW-100L5T9"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "aquarius",
+                "task_title": "Отвердители",
+                "task_text": [
+                    "<i>Ага-ага. Ну раз у тебя что-то выходит, вот тебе один из моих новых отвердителей. Отмерь мне 3 различных объёма.</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 13 литров, ёмкость B — 3 литра.",
+                    "Получите в любой ёмкости 7, 5 и 1 литр."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 13,
+                    "volumeB": 3,
+                    "target": [
+                        7,
+                        5,
+                        1
+                    ],
+                    "steps": 16
+                },
+                "verif_code": {
+                    "0": "AZHMYC-0L5T1111111110",
+                    "75": "XVAIWK-75L5T1111111110",
+                    "100": "GVWBVG-100L5T1111111110"
+                }
+            }
+        ]
+    },
+    {
+        "level": 3,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Испытание №5",
+                "task_text": [
+                    "Ёмкость А вмещает 7 литров, ёмкость B — 11 литров.",
+                    "Получите в любой ёмкости 2, 3 и 5 литров."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 7,
+                    "volumeB": 11,
+                    "target": [
+                        2,
+                        3,
+                        5
+                    ],
+                    "steps": 20
+                },
+                "verif_code": {
+                    "0": "PMVNSI-0L5T111111",
+                    "75": "SOTQKN-75L5T111111",
+                    "100": "LPGCGY-100L5T111111"
+                }
+            }
+        ]
+    },
+    {
+        "level": 4,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Начнём с воды",
+                "task_text": [
+                    "<i>Перво-наперво нужно отмерить солёную воду.</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 3 литра, ёмкость B — 4 литра.",
+                    "Получите в любой ёмкости 1 литр."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 3,
+                    "volumeB": 4,
+                    "target": [
+                        1
+                    ],
+                    "steps": 2
+                },
+                "verif_code": {
+                    "0": "UHTHRU-0L5T1112",
+                    "75": "GCDGXG-75L5T1112",
+                    "100": "DSGZBA-100L5T1112"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "aquarius",
+                "task_title": "Теперь металл",
+                "task_text": [
+                    "<i>Теперь раствор меди. Нужно отмерить дважды.</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 3 литра, ёмкость B — 7 литров.",
+                    "Получите в любой ёмкости 2 и 5 литров."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 3,
+                    "volumeB": 7,
+                    "target": [
+                        2,
+                        5
+                    ],
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "ADXAZW-0L5T113",
+                    "75": "QRAMFI-75L5T113",
+                    "100": "QWUZYO-100L5T113"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "aquarius",
+                "task_title": "И капелька магии",
+                "task_text": [
+                    "<i>И, наконец, немножко электролита. Что бы это ни было.",
+                    "Нужно три измерения.</i>",
+                    "<hr>",
+                    "Ёмкость А вмещает 2 литра, ёмкость B — 9 литров.",
+                    "Получите в любой ёмкости 6, 5 и 7 литров."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 2,
+                    "volumeB": 9,
+                    "target": [
+                        6,
+                        5,
+                        7
+                    ],
+                    "steps": 14
+                },
+                "verif_code": {
+                    "0": "GQOZVF-0L5T14",
+                    "75": "HOEHGX-75L5T14",
+                    "100": "FZELDG-100L5T14"
+                }
+            }
+        ]
+    }
+]
