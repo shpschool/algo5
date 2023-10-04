@@ -256,9 +256,9 @@
                     "steps": 16
                 },
                 "verif_code": {
-                    "0": "AZHMYC-0L5T1111111110",
-                    "75": "XVAIWK-75L5T1111111110",
-                    "100": "GVWBVG-100L5T1111111110"
+                    "0": "AZHMYC-0L5T10",
+                    "75": "XVAIWK-75L5T10",
+                    "100": "GVWBVG-100L5T10"
                 }
             }
         ]
@@ -287,9 +287,9 @@
                     "steps": 20
                 },
                 "verif_code": {
-                    "0": "PMVNSI-0L5T111111",
-                    "75": "SOTQKN-75L5T111111",
-                    "100": "LPGCGY-100L5T111111"
+                    "0": "PMVNSI-0L5T11",
+                    "75": "SOTQKN-75L5T11",
+                    "100": "LPGCGY-100L5T11"
                 }
             }
         ]
@@ -318,9 +318,9 @@
                     "steps": 2
                 },
                 "verif_code": {
-                    "0": "UHTHRU-0L5T1112",
-                    "75": "GCDGXG-75L5T1112",
-                    "100": "DSGZBA-100L5T1112"
+                    "0": "UHTHRU-0L5T12",
+                    "75": "GCDGXG-75L5T12",
+                    "100": "DSGZBA-100L5T12"
                 }
             },
             {
@@ -345,9 +345,9 @@
                     "steps": 10
                 },
                 "verif_code": {
-                    "0": "ADXAZW-0L5T113",
-                    "75": "QRAMFI-75L5T113",
-                    "100": "QWUZYO-100L5T113"
+                    "0": "ADXAZW-0L5T13",
+                    "75": "QRAMFI-75L5T13",
+                    "100": "QWUZYO-100L5T13"
                 }
             },
             {
