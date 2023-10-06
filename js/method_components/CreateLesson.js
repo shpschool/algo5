@@ -34,8 +34,8 @@ export default {
                     el.task = taskNumber;
                     number++;
                     for (let code in el.verif_code) {
-                        let ind = code.lastIndexOf('T');
-                        code = code.slice(0, ind) + number;
+                        let index = code.lastIndexOf('T');
+                        code = code.slice(0, index) + number;
                     }
                 })
             })
