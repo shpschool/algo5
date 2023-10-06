@@ -33,9 +33,10 @@ export default {
                     taskNumber++;
                     el.task = taskNumber;
                     number++;
-                    el.verif_code["0"] = el.verif_code["0"].slice(0, -1) + number;
-                    el.verif_code["75"] = el.verif_code["75"].slice(0, -1) + number;
-                    el.verif_code["100"] = el.verif_code["100"].slice(0, -1) + number;
+                    for (let code in el.verif_code) {
+                        let ind = code.lastIndexOf('T');
+                        code = code.slice(0, ind) + number;
+                    }
                 })
             })
         },
