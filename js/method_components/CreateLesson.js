@@ -1,3 +1,8 @@
+/**
+ * Форма для создания занятия.
+ * @return Итоговый выход: файл "json" для папки "db"
+ */
+
 const generateRandomString = (length) => {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -23,6 +28,10 @@ export default {
     },
     methods: {
         changeNumbers() {
+            /**
+             * Изменяет номера задач в кодах для преподавателя на сквозные номера:
+             * вне зависимости от шага, задача должна быть пронумерована порядковым номером внутри урока.
+             */
             let levelNumber = 0;
             let number = 0;
             this.code.forEach(level => {
@@ -33,6 +42,7 @@ export default {
                     taskNumber++;
                     el.task = taskNumber;
                     number++;
+                    // буква T в коде означает начало номера для задачи
                     for (let code in el.verif_code) {
                         let index = el.verif_code[code].lastIndexOf('T') + 1;
                         el.verif_code[code] = el.verif_code[code].slice(0, index) + number;
@@ -80,6 +90,9 @@ export default {
             task.params.target = values.split(',').map(Number);
         },
         changeCode(task) {
+            /**
+             * Задает значения по умолчанию в коде
+             */
             if (task.executor === 'doubler') {
                 task.params = {
                     "start": 0,

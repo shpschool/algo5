@@ -1,11 +1,18 @@
+/**
+ * Главный компонент, который рендерит метод. сторону, то есть роут "/"
+ */
+
+
+import createExcel from "./helpers/excelHelper.js";
+import makeAlgorithmHelper from "./helpers/makeAlgorithmHelper.js";
 const { createApp } = Vue;
 import App from "./App.js";
 import CreateLesson from "./method_components/CreateLesson.js";
 import ShowLessons from "./method_components/ShowLessons.js";
 
-let path = new URL(document.location);
+let path = new URL(document.location);  // если ссылка формата "?lesson=N&level=M&task=K"
 if (path.searchParams.get('lesson')) {
-    createApp(App).mount('#app');
+    createApp(App).mount('#app');       // то рендерим исполнителей
 } else {
     createApp({
         data() {
@@ -14,6 +21,8 @@ if (path.searchParams.get('lesson')) {
                 accessStatus: false,
                 error: false,
                 page: '',
+                createExcel,
+                makeAlgorithmHelper,
             }
         },
         methods: {
@@ -76,7 +85,10 @@ if (path.searchParams.get('lesson')) {
                 <h2 @click="page = 'show'" class="btn-link">Посмотреть занятия</h2>
                 <h2 @click="page = 'create'" class="btn-link">Создать занятие</h2>
             </div>
-            <ShowLessons v-if="page==='show'" @back="back" />
+            <ShowLessons v-if="page==='show'"
+                @back="back"
+                :createExcel="createExcel"
+                :makeAlgorithmHelper="makeAlgorithmHelper" />
             <CreateLesson v-if="page==='create'" @back="back" />
         </div>
         `,

@@ -7,6 +7,7 @@ export default {
             fileNames: {},
         }
     },
+    props: ['createExcel', 'makeAlgorithmHelper'],
     emits: ['back'],
     methods: {
         copy(button, lesson, level, task) {
@@ -25,154 +26,8 @@ export default {
         showToggle(header) {
             header.closest('.accordion-item').classList.toggle('show');
         },
-        styleSheet(sheet, len) {
-            sheet["!rows"] = [{}];
-            for (let row = 0; row < len; row++) {
-                if (row !== 0) sheet["!rows"].push({hpt: 25});
-                for (let i = 0; i < 6; i++) {
-                    sheet[XLSX.utils.encode_cell({r:row, c:i})].s = {
-                        font: {name: "Arial", sz: "10"},
-                        alignment: {vertical: "center", wrapText: true}
-                    };
-                    if (row === 0) {
-                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.font.bold = true;
-                    }
-                    if (row % 3 === 0) {
-                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.border = { bottom: { style: 'thin', color: { rgb: '00000000' } } };
-                    } 
-                    if (i === 2 || i === 5 || row === 0) {
-                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.alignment.horizontal = "center";
-                    }
-                    if (i === 4) {
-                        sheet[XLSX.utils.encode_cell({r:row, c:i})].s.font.name = "Consolas";
-                    }
-                }
-            }
-            sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 22}, {wch: 22}, {wch: 10}];
-        },
-        mergeCells(len) {
-            let merge = [];
-            let cols = [0, 1, 4, 5];
-            for (let row = 1; row < len; row += 3) {
-                for (let i = 0; i < cols.length; i++) {
-                    merge.push({
-                        s: {r: row, c: cols[i]},
-                        e: {r: row + 2, c: cols[i]}
-                    });
-                }
-            }
-            return merge;
-        },
-        formatVolume(volume, value) {
-            let padNum = 1;
-            if (volume >= 10) padNum = 2;
-            if (volume >= 100) padNum = 3;
-            let currVal = value.toString().padStart(padNum);
-            return currVal;
-        },
-        makeAlgorithm(exec, params) {
-            if (exec === "divider") {
-                let divCommands = [];
-                let x = params.start;
-                let a = params.end;
-                while (x > a) {
-                    if (x % 2 == 0 && x / 2 >= a) {
-                        x /= 2;
-                        divCommands.push(":2");
-                    } else {
-                        x -= 1;
-                        divCommands.push("-1");
-                    }
-                }
-                return divCommands.join(" ");
-            } else if (exec === "doubler") {
-                let doubCommands = [];
-                let x = params.end;
-                let a = params.start;
-                while (x > a) {
-                    if (x % 2 == 0 && x / 2 >= a) {
-                        x /= 2;
-                        doubCommands.unshift("x2");
-                    } else {
-                        x -= 1;
-                        doubCommands.unshift("+1");
-                    }
-                }
-                return doubCommands.join(" ");
-            } else if (exec === "aquarius") {
-                let solutions = [];
-                let a = params.volumeA;
-                let b = params.volumeB;
-                let aStart = params.start_volumeA;
-                let bStart = params.start_volumeB;
-                let goals = params.target.sort();
-                for (let i = 0; i < 2; i++) {
-                    let solution = [];
-                    let goalsCheck = [];
-                    goals.forEach(() => goalsCheck.push(0));
-                    let c = a;
-                    a = b, b = c;
-                    let cStart = aStart;
-                    aStart = bStart, bStart = cStart;
-                    let A = aStart, B = bStart, steps = 0, x;
-                    while (goalsCheck.includes(0)) {
-                        steps += 1
-                        if (A === 0) {
-                            A = a
-                            if (a === params.volumeA) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(a, A)}, B = ${this.formatVolume(b, B)} | наполнить А`);
-                            if (a === params.volumeB) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(b, B)}, B = ${this.formatVolume(a, A)} | наполнить B`);
-                        } else if (B !== b) {
-                            if (b - B > 0 && b - B <= A) {
-                                x = b - B;
-                            } else {
-                                x = A
-                            }
-                            B += x;
-                            A -= x;
-                            if (a === params.volumeA) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(a, A)}, B = ${this.formatVolume(b, B)} | перелить из А в В`);
-                            if (a === params.volumeB) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(b, B)}, B = ${this.formatVolume(a, A)} | перелить из B в A`);
-                        } else if (B === b) {
-                            B = 0;
-                            if (a === params.volumeA) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(a, A)}, B = ${this.formatVolume(b, B)} | опустошить В`);
-                            if (a === params.volumeB) solution.push(`${steps.toString().padStart(3)}. A = ${this.formatVolume(b, B)}, B = ${this.formatVolume(a, A)} | опустошить A`);
-                        }
-                        if (goals.includes(A) && !goalsCheck.includes(A)) {
-                            goalsCheck[goals.indexOf(A)] = A;
-                        } else if (goals.includes(B) && !goalsCheck.includes(B)) {
-                            goalsCheck[goals.indexOf(B)] = B;
-                        }
-                    }
-                    solutions.push({"steps": steps, "solution": solution});
-                }
-                if (solutions[0].steps < solutions[1].steps) {
-                    return solutions[0].solution.join('\n');
-                } else {
-                    return solutions[1].solution.join('\n');
-                }
-            }
-            return "";
-        },
         async downloadExcel(lesson, fileName, ind) {
-            let book = [["№", "Название", "Вариант", "Код", "Алгоритм", "Шагов"]];
-            let num = 1;
-            for (let i = 0; i < lesson.length; i++) {
-                let tasks = lesson[i].tasks;
-                for (let j = 0; j < tasks.length; j++) {
-                    let task = tasks[j];
-                    let codes = task.verif_code;
-                    let algo = this.makeAlgorithm(task.executor, task.params);
-                    book.push([num, task.task_title, "ошиб.", codes["0"], algo, task.params.steps]);
-                    book.push(["", "", "неопт.", codes["75"], "", ""]);
-                    book.push(["", "", "опт.", codes["100"], "", ""]);
-                    num++;
-                }
-            }
-            let worksheet = XLSX.utils.aoa_to_sheet(book);
-            worksheet["!merges"] = this.mergeCells(book.length);
-            this.styleSheet(worksheet, book.length);
-            let workbook = XLSX.utils.book_new();
-            workbook.SheetNames.push("Коды");
-            workbook.Sheets["Коды"] = worksheet;
+            let workbook = this.createExcel(lesson, this.makeAlgorithmHelper);
             if (fileName && fileName.trim()) {
                 XLSX.writeFile(workbook, `${fileName.trim()}.xlsx`);
             } else {
