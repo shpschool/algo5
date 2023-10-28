@@ -2,6 +2,10 @@ export default {
     props: ['solution', 'verifCode', 'points', 'checkSolution', 'show', 'clean', 'back', 'repeat', 'solutionLength'],
     computed: {
         renderSolution() {
+            /**
+             * Добавление количества повторений команд для Удвоителя, Поделителя и Кузнечика,
+             * а также добавление надписи с полученным результатом
+             */
             let arr = [];
             let repeatCom = 1;
             let savedValue, win;

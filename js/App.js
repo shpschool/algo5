@@ -1,3 +1,7 @@
+/**
+ * Главный компонент по отрисовке исполнителей
+ */
+
 import Header from './components/Header.js';
 import Task from './components/Task.js';
 import Commands from './components/Commands.js';
@@ -27,8 +31,6 @@ export default {
             volumeB: 0,
             currVolumeA: 0,
             currVolumeB: 0,
-            doneA: false,
-            doneB: false,
             min: 0,
             max: 0,
             isActive: false,
@@ -43,16 +45,7 @@ export default {
             mobile: false,
         }
     },
-    watch: {
-        currVolumeA() {
-            if (this.taskParams.target.find(el => el === this.currVolumeA)) this.doneA = true;
-            else this.doneA = false;
-        },
-        currVolumeB() {
-            if (this.taskParams.target.find(el => el === this.currVolumeB)) this.doneB = true;
-            else this.doneB = false;
-        },
-    },
+    props: ['ch'],
     methods: {
         modalActive(state) {
             this.isActive = state;
@@ -72,76 +65,61 @@ export default {
         changeVolumeB(value) {
             this.currVolumeB = value;
         },
-        changeSolLen() {
-            if (this.executor === 'grasshopper') {
-                let solutionLen = 0;
-                for (let i=0; i< this.solution.length; i++) {
-                    let com = this.solution[i];
-                    solutionLen += com.len;
-                }
-                this.solutionLength = solutionLen;
-            } else this.solutionLength = this.solution.length;
+        pushValue(value) {
+            if (this.taskParams.target && this.taskParams.target.find(el => el === value) && !(this.receivedValues.find(el => el.value === value))) {
+                this.receivedValues.push({'value': value, 'number': this.solutionLength});
+                console.log('received values array: ', this.receivedValues);
+                return true;
+            }
+            return false;
         },
         isTarget(value, volume='') {
             let command = '';
-            if (this.taskParams.target.find(el => el === value)) {
-                if (!(this.receivedValues.find(el => el === value))) {
-                    if (volume) {
-                        command = ` -> получено ${value} л. в емкости ${volume}`;
-                    } else {
-                        command = ` -> достигнута точка ${value}`;
-                    }
-                    this.receivedValues.push(value);
+            let target = this.pushValue(value);
+            console.log(`${volume ? 'volume ' + volume + ' is target:' : 'value is target:'} ${target}`);
+            if (target) {
+                if (volume) {
+                    command = ` -> получено ${value} л. в емкости ${volume}`;
+                } else {
+                    command = ` -> достигнута точка ${value}`;
                 }
             }
             return command;
         },
-        formatVolume(volume, value) {
-            let padNum = 1;
-            if (volume >= 10) padNum = 2;
-            if (volume >= 100) padNum = 3;
-            let currVal = value.toString().padStart(padNum);
-            return currVal;
-        },
         addCommandToSolution(command) {
-            if (this.executor === 'doubler' || this.executor === 'divider') {
-                this.solution.push({'prevValue': command[0], 'command': command[1], 'value': this.currentValue});
-            } else if (this.executor === 'aquarius') {
-                command += this.isTarget(this.currVolumeA, 'A');
-                command += this.isTarget(this.currVolumeB, 'B');
-                let currA = this.formatVolume(this.volumeA, this.currVolumeA);
-                let currB = this.formatVolume(this.volumeB, this.currVolumeB);
-                this.solution.push({'text': `A = ${currA}, B = ${currB} | ${command}`, 'valueA': this.currVolumeA, 'valueB': this.currVolumeB});
-            } else if (this.executor === 'grasshopper') {
-                let win = this.isTarget(this.currentValue);
-                this.solution.push({'text': command.text, 'value': this.currentValue, 'len': command.len, 'win': win})
-            }
-            this.changeSolLen();
+            let newCom = this.ch.createNewCommand(
+                command, this.executor, this.isTarget, this.currentValue, this.currVolumeA, this.currVolumeB, this.volumeA, this.volumeB
+            );
+            this.solution.push(newCom);
+            this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
             this.deleteArr = [];
         },
         // для компонента "Решение"
         clean() {
             this.solution = [];
             this.deleteArr = [];
-            this.changeSolLen();
+            this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
             this.show = false;
             this.currentValue = this.taskParams.start;
             this.currVolumeA = this.taskParams.start_volumeA;
             this.currVolumeB = this.taskParams.start_volumeB;
             this.receivedValues = [];
-            this.doneA = false;
-            this.doneB = false;
         },
         popValue(value) {
-            if (value === this.receivedValues[this.receivedValues.length - 1]) {
-                this.receivedValues.pop();
+            let lastValue = this.receivedValues[this.receivedValues.length - 1];
+            if (lastValue && value === lastValue.value && lastValue.number === this.solutionLength) {
+                let res = this.receivedValues.pop();
+                console.log('poped value: ', res);
+                console.log('received values array: ', this.receivedValues);
             }
         },
         back() {
             let com = this.solution.pop();
             if (com) {
-                this.changeSolLen();
+                this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
                 this.deleteArr.push(com);
+                console.log('delete array: ', this.deleteArr);
+                console.log('try to pop received value');
                 this.popValue(com.value);
                 this.popValue(com.valueA);
                 this.popValue(com.valueB);
@@ -159,16 +137,13 @@ export default {
                 
             }
         },
-        pushValue(value) {
-            if (this.taskParams.target.find(el => el === value)) {
-                this.receivedValues.push(value);
-            }
-        },
         repeat() {
             let com = this.deleteArr.pop();
+            console.log('delete array: ', this.deleteArr);
             if (com) {
                 this.solution.push(com);
-                this.changeSolLen();
+                console.log('repeat command: ', com);
+                this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
                 this.currentValue = com.value;
                 this.currVolumeA = com.valueA;
                 this.currVolumeB = com.valueB;
@@ -180,7 +155,7 @@ export default {
         checkAquaTargets() {
             let numberOfTargets = 0;
             for (let i=0; i < this.taskParams.target.length; i++) {
-                if (this.receivedValues.find(el => el === this.taskParams.target[i]))
+                if (this.receivedValues.find(el => el.value === this.taskParams.target[i]))
                     numberOfTargets++;
             }
             return numberOfTargets;
@@ -190,7 +165,7 @@ export default {
                 return false;
             }
             for (let i=0; i < this.taskParams.target.length; i++) {
-                if (this.receivedValues[i] !== this.taskParams.target[i]) {
+                if (this.receivedValues[i].value !== this.taskParams.target[i]) {
                     return false;
                 }
             }
@@ -296,8 +271,7 @@ export default {
                 :volumeB=volumeB
                 :currVolumeA=currVolumeA
                 :currVolumeB=currVolumeB
-                :doneA=doneA
-                :doneB=doneB />
+                :taskParams=taskParams />
             <Commands
                 :executor=executor
                 :args=args
@@ -341,8 +315,7 @@ export default {
                 :volumeB=volumeB
                 :currVolumeA=currVolumeA
                 :currVolumeB=currVolumeB
-                :doneA=doneA
-                :doneB=doneB />
+                :taskParams=taskParams />
             <Task
                 :taskTitle=taskTitle
                 :taskText=taskText

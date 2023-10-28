@@ -5,6 +5,7 @@
 
 import createExcel from "./helpers/excelHelper.js";
 import makeAlgorithmHelper from "./helpers/makeAlgorithmHelper.js";
+import commandHelper from "./helpers/commandHelper.js";
 const { createApp } = Vue;
 import App from "./App.js";
 import CreateLesson from "./method_components/CreateLesson.js";
@@ -12,7 +13,13 @@ import ShowLessons from "./method_components/ShowLessons.js";
 
 let path = new URL(document.location);  // если ссылка формата "?lesson=N&level=M&task=K"
 if (path.searchParams.get('lesson')) {
-    createApp(App).mount('#app');       // то рендерим исполнителей
+    createApp({
+        data() {
+            return {commandHelper}
+        },
+        components: {App},
+        template: `<App :ch="commandHelper" />`
+    }).mount('#app');       // то рендерим исполнителей
 } else {
     createApp({
         data() {

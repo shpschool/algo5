@@ -3,9 +3,21 @@ export default {
         return {
             styleA: 'width: 120px',
             styleB: 'width: 120px',
+            doneA: false,
+            doneB: false,
         }
     },
-    props: ['volumeA', 'volumeB', 'currVolumeA', 'currVolumeB', 'doneA', 'doneB'],
+    props: ['volumeA', 'volumeB', 'currVolumeA', 'currVolumeB', 'taskParams'],
+    watch: {
+        currVolumeA(newVolume) {
+            if (this.taskParams.target.find(el => el === newVolume)) this.doneA = true;
+            else this.doneA = false;
+        },
+        currVolumeB(newVolume) {
+            if (this.taskParams.target.find(el => el === newVolume)) this.doneB = true;
+            else this.doneB = false;
+        },
+    },
     created() {
         let maxWidth = 120;
         if (this.volumeA > this.volumeB) {
