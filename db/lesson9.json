@@ -5,7 +5,7 @@
             {
                 "task": 1,
                 "executor": "aquarius",
-                "task_title": "Задание 1.1",
+                "task_title": "Первое задание",
                 "task_text": [
                     "Ёмкость А вмещает 6 литров.",
                     "Ёмкость В вмещает 42 литра.",
@@ -31,7 +31,7 @@
             {
                 "task": 2,
                 "executor": "aquarius",
-                "task_title": "Задание 1.2",
+                "task_title": "Segunda tarea",
                 "task_text": [
                     "Ёмкость А вмещает 8 литров.",
                     "Ёмкость В вмещает 36 литров.",
@@ -57,7 +57,7 @@
             {
                 "task": 3,
                 "executor": "aquarius",
-                "task_title": "Задание 1.3",
+                "task_title": "Tertium negotium",
                 "task_text": [
                     "Ёмкость А вмещает 13 литров.",
                     "Ёмкость В вмещает 143 литра.",
@@ -83,7 +83,7 @@
             {
                 "task": 4,
                 "executor": "aquarius",
-                "task_title": "Задание 1.4",
+                "task_title": "第四个任务",
                 "task_text": [
                     "Ёмкость А вмещает 4 литра.",
                     "Ёмкость В вмещает 27 литров.",
