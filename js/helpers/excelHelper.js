@@ -23,7 +23,7 @@ function styleSheet(sheet, len) {
             }
         }
     }
-    sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 22}, {wch: 22}, {wch: 10}];
+    sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 22}, {wch: 50}, {wch: 10}];
 }
 function mergeCells(len) {
     let merge = [];
@@ -47,6 +47,8 @@ function makeAlgorithm(exec, params, makeAlgorithmHelper) {
         algorithm = makeAlgorithmHelper.doublerAlgorithm(params);
     } else if (exec === "aquarius") {
         algorithm = makeAlgorithmHelper.aquariusAlgorithm(params);
+    } else if (exec === "grasshopper") {
+        algorithm = makeAlgorithmHelper.grasshopperAlgorithm(params);
     }
     return algorithm;
 }
