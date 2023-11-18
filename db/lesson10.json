@@ -5,6 +5,31 @@
             {
                 "task": 1,
                 "executor": "grasshopper",
+                "task_title": "Пример задачи Кузнечика",
+                "task_text": [
+                    "Кузнечик может прыгать на 2 клетки вперёд и 3 клетки назад. Составьте алгоритм, с помощью которого Кузнечик окажется в точке 7."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": 0,
+                    "forward": 2,
+                    "backward": 3,
+                    "min": "",
+                    "max": "",
+                    "target": [
+                        7
+                    ],
+                    "steps": 6
+                },
+                "verif_code": {
+                    "0": "PLOHOE-0L10T1",
+                    "75": "NEPLOH-75L10T1",
+                    "100": "HOROSH-100L10T1"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "grasshopper",
                 "task_title": "Тут так принято",
                 "task_text": [
                     "<i>Я вам так скажу, всё у нас тут принято оптимально делать. И вы привыкайте, нельзя по-другому, надо так.",
@@ -32,7 +57,7 @@
                 }
             },
             {
-                "task": 2,
+                "task": 3,
                 "executor": "grasshopper",
                 "task_title": "Музицируем",
                 "task_text": [
