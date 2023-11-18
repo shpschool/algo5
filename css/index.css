@@ -342,6 +342,11 @@ progress.volume-progress.done::-webkit-progress-value {
     font-family: "Consolas", monospace;
     white-space: pre;
 }
+.operator {
+    font-weight: bold;
+    color: var(--main);
+    font-family: "Consolas", monospace;
+}
 .line {
     width: 98%;
     margin: 5px 0px;

@@ -28,10 +28,66 @@ const createNewCommand = (command, exec, isTarget=null, currValue=null, currA=nu
     } else if (exec === 'grasshopper') {
         let win = isTarget(currValue);
         newCommand = {'text': command.text, 'value': currValue, 'len': command.len, 'win': win};
+        if (command.procedure) {
+            newCommand.procedure = command.procedure;
+        }
     } else {
         newCommand = {'prevValue': command[0], 'command': command[1], 'value': currValue};
     }
     return newCommand;
 }
 
-export default {changeSolLen, createNewCommand};
+const renderSolution = (solution) => {
+    /**
+     * Добавление количества повторений команд для Удвоителя, Поделителя и Кузнечика,
+     * а также добавление надписи с полученным результатом
+     */
+    let arr = [];
+    let repeatCom = 1;
+    let savedValue;
+    for (let i=0; i < solution.length; i++) {
+        let com = solution[i];
+        let text = com.text;
+        if (!text) {
+            let prevCom = solution[i-1];
+            if (prevCom && prevCom.command === com.command) {
+                repeatCom++;
+                if (repeatCom === 2) {
+                    savedValue = prevCom.prevValue;
+                }
+                text = `${savedValue}${com.command} (x${repeatCom}) -> ${com.value}`;
+            } else {
+                repeatCom = 1;
+                text = `${com.prevValue}${com.command} -> ${com.value}`;
+            }
+        } else if (com.value !== undefined) {
+            let prevCom = solution[i-1];
+            if (prevCom && prevCom.text === com.text && !prevCom.win) {
+                repeatCom++;
+                text += ` (x${repeatCom})`;
+            } else {
+                repeatCom = 1;
+            }
+            if (com.win) {
+                text += com.win;
+            }
+        }
+        if (repeatCom === 1) {
+            arr.push(text);
+        } else {
+            arr[arr.length - 1] = text;
+        } 
+    }
+    return arr;
+}
+
+const createProcedureNode = (com) => {
+    let node = document.createElement('div');
+    node.className = 'command';
+    node.id = 'p' + com.text;
+    let procedureText = `<span class="operator">процедура ${com.text}\nначало процедуры</span>\n${com.procedure}\n<span class="operator">конец процедуры</span>\n\n`;
+    node.innerHTML = procedureText;
+    return node;
+}
+
+export default {changeSolLen, createNewCommand, renderSolution, createProcedureNode};

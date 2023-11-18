@@ -10,6 +10,7 @@ import DoublerDivider from './components/taskVisual/DoublerDivider.js';
 import Aquarius from './components/taskVisual/Aquarius.js';
 import Grasshopper from './components/taskVisual/Grasshopper.js';
 import Modal from './components/Modal.js';
+import commandHelper from './helpers/commandHelper.js';
 
 export default {
     data() {
@@ -41,6 +42,7 @@ export default {
             show: false,
             orientation: '',
             mobile: false,
+            usedProcedures: [],
         }
     },
     props: ['ch'],
@@ -84,10 +86,23 @@ export default {
             }
             return command;
         },
+        addUsedProcedure(command) {
+            if (command.procedure) {
+                const node = document.getElementById('procedure-field');
+                let procedure = this.usedProcedures.find(el => el.procedure === command.text);
+                if (!procedure) {
+                    let field = this.ch.createProcedureNode(command);
+                    this.usedProcedures.push({'procedure': command.text, 'number': this.solutionLength});
+                    node.append(field);
+                } 
+            }
+        },
         addCommandToSolution(command) {
             let newCom = this.ch.createNewCommand(
                 command, this.executor, this.isTarget, this.currentValue, this.currVolumeA, this.currVolumeB, this.volumeA, this.volumeB
             );
+            console.log(newCom);
+            this.addUsedProcedure(command);
             this.solution.push(newCom);
             this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
             this.deleteArr = [];
@@ -102,6 +117,8 @@ export default {
             this.currVolumeA = this.taskParams.start_volumeA;
             this.currVolumeB = this.taskParams.start_volumeB;
             this.receivedValues = [];
+            this.usedProcedures = [];
+            document.getElementById('procedure-field').innerHTML = '';
         },
         popValue(value) {
             let lastValue = this.receivedValues[this.receivedValues.length - 1];
@@ -109,6 +126,16 @@ export default {
                 let res = this.receivedValues.pop();
                 console.log('poped value: ', res);
                 console.log('received values array: ', this.receivedValues);
+            }
+        },
+        removeProcedure(com) {
+            let procedure = this.usedProcedures.find(el => el.procedure === com.text);
+            if (procedure && procedure.number === this.solutionLength) {
+                let index = this.usedProcedures.indexOf(procedure);
+                this.usedProcedures.splice(index, 1);
+                let parent = document.getElementById('procedure-field');
+                let procedureNode = parent.querySelector('#p'+com.text);
+                procedureNode.remove();
             }
         },
         back() {
@@ -121,6 +148,7 @@ export default {
                 this.popValue(com.value);
                 this.popValue(com.valueA);
                 this.popValue(com.valueB);
+                this.removeProcedure(com);
                 let el = this.solution[this.solution.length - 1];
                 if (el) {
                     this.currentValue = el.value;
@@ -141,6 +169,7 @@ export default {
             if (com) {
                 this.solution.push(com);
                 console.log('repeat command: ', com);
+                this.addUsedProcedure(com);
                 this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
                 this.currentValue = com.value;
                 this.currVolumeA = com.valueA;
@@ -295,7 +324,8 @@ export default {
             :show=show
             :clean=clean
             :back=back
-            :repeat=repeat />
+            :repeat=repeat
+            :renderSolution=ch.renderSolution />
     </div>
     <div v-else class="content colomn-cont">
         <div class="top-content" :class="{colomn: executor==='grasshopper'}">
@@ -329,7 +359,8 @@ export default {
                 @close-modal=modalActive
                 :addCommandToSolution="addCommandToSolution"
                 :changeCurrentValue="changeCurrentValue"
-                @add-procedure=addProcedure />
+                @add-procedure=addProcedure
+                :ch=ch />
         </div>
         <div class="bottom-content">
             <Commands
@@ -358,7 +389,8 @@ export default {
                 :show=show
                 :clean=clean
                 :back=back
-                :repeat=repeat />
+                :repeat=repeat
+                :renderSolution=ch.renderSolution />
         </div>
     </div>
     `

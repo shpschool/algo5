@@ -8,10 +8,11 @@ export default {
             modalDeleteArr: [],
             modalCurrentValue: 0,
             modalSolutionLength: 0,
+            modalUsedProcedures: [],
             afterChange: false,
         }
     },
-    props: ['isActive', 'commands', 'procedures', 'args', 'currentValue', 'changeCurrentValue', 'addCommandToSolution'],
+    props: ['isActive', 'commands', 'procedures', 'args', 'currentValue', 'changeCurrentValue', 'addCommandToSolution', 'ch'],
     emits: ['closeModal', 'addProcedure'],
     watch: {
         isActive() {
@@ -81,12 +82,22 @@ export default {
             this.modalDeleteArr = [];
             this.changeSolLength();
             this.modalCurrentValue = 0;
+            this.modalUsedProcedures = [];
+            document.getElementById('modal-procedure-field').innerHTML = '';
         },
         back() {
             let com = this.modalSolution.pop();
             if (com) {
                 this.modalDeleteArr.push(com);
                 this.changeSolLength();
+                let procedure = this.modalUsedProcedures.find(el => el.procedure === com.text);
+                if (procedure && procedure.number === this.modalSolutionLength) {
+                    let index = this.modalUsedProcedures.indexOf(procedure);
+                    this.modalUsedProcedures.splice(index, 1);
+                    let parent = document.getElementById('modal-procedure-field');
+                    let procedureNode = parent.querySelector('#p'+com.text);
+                    procedureNode.remove();
+                }
                 let el = this.modalSolution[this.modalSolution.length - 1];
                 if (el) {
                     this.modalCurrentValue = el.value;
@@ -96,33 +107,55 @@ export default {
                 }
             }
         },
+        addModalUsedProcedure(command) {
+            if (command.procedure) {
+                const node = document.getElementById('modal-procedure-field');
+                let procedure = this.modalUsedProcedures.find(el => el.procedure === command.text);
+                if (!procedure) {
+                    let field = this.ch.createProcedureNode(command);
+                    this.modalUsedProcedures.push({'procedure': command.text, 'number': this.modalSolutionLength});
+                    node.append(field);
+                }
+            }
+        },
         repeat() {
             let com = this.modalDeleteArr.pop();
             if (com) {
                 this.modalSolution.push(com);
+                this.addModalUsedProcedure(com);
                 this.changeSolLength();
                 this.modalCurrentValue = com.value;
             }
+        },
+        addCommandToModalSolution(com) {
+            this.modalCurrentValue += com.value;
+            this.modalSolution.push(com);
+            this.addModalUsedProcedure(com);
+            this.changeSolLength();
         },
         makeProcedure() {
             if (this.procedureName) {
                 let value = this.modalCurrentValue;
                 let name = this.procedureName;
                 let len = this.modalSolutionLength;
+                let procedureSolution = this.ch.renderSolution(this.modalSolution).join('\n');
+                let command = {
+                    'text': name, 'len': len,
+                    'procedure': procedureSolution
+                };
                 let com = {
                     'text': name,
                     'len': len,
                     'func': () => {
                         if (this.isActive === true) {
-                            this.modalCurrentValue += value;
-                            this.modalSolution.push({'text': name, 'value': this.modalCurrentValue, 'len': len});
-                            this.changeSolLength();
+                            command.value = value;
+                            this.addCommandToModalSolution(command)
                         } else {
                             let newValue = this.currentValue + value;
                             this.changeCurrentValue(newValue);
-                            this.addCommandToSolution({'text': name, 'len': len});
+                            this.addCommandToSolution(command);
                         }
-                    }
+                    },
                 };
                 this.$emit('addProcedure', com);
                 this.$emit('closeModal');
@@ -170,7 +203,8 @@ export default {
                         required>
                 </div>
                 <div class="solution-field">
-                    <span class="command" v-for="(com, index) in modalSolution" :key=index>{{com.text}}</span>
+                    <div id="modal-procedure-field"></div>
+                    <span class="command" v-for="(com, index) in ch.renderSolution(modalSolution)" :key=index>{{com}}</span>
                 </div>
                 <div class="modal-btn-cont inline-cont">
                     <span>
