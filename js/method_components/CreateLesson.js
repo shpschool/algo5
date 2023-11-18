@@ -254,14 +254,6 @@ export default {
                             <input v-model="task.params.backward" type="number" class="field" name="backward">
                         </div>
                         <div>
-                            <label class="inline" for="min">Введите минимальное значение, доступное на числовой прямой:</label>
-                            <input v-model="task.params.min" type="number" class="field" name="min">
-                        </div>
-                        <div>
-                            <label class="inline" for="max">Введите максимальное значение, доступное на числовой прямой:</label>
-                            <input v-model="task.params.max" type="number" class="field" name="max">
-                        </div>
-                        <div>
                             <label class="inline" for="start">Введите стартовую точку:</label>
                             <input v-model="task.params.start" type="number" class="field" name="start">
                         </div>
