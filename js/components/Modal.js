@@ -119,10 +119,8 @@ export default {
                             this.changeSolLength();
                         } else {
                             let newValue = this.currentValue + value;
-                            if (this.args.min <= newValue && newValue <= this.args.max) {
-                                this.changeCurrentValue(newValue);
-                                this.addCommandToSolution({'text': name, 'len': len});
-                            }
+                            this.changeCurrentValue(newValue);
+                            this.addCommandToSolution({'text': name, 'len': len});
                         }
                     }
                 };

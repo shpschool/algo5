@@ -231,54 +231,26 @@ progress.volume-progress.done::-webkit-progress-value {
     height: fit-content;
     border-radius: 5px;
 }
-.limit-line {
-    font-size: small;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.limit-line .min {
-    margin-left: 5px;
-}
-.limit-line .max {
-    margin-right: 5px;
-}
-.limit-line .min, .limit-line .max {
-    margin-top: 5px;
-}
 .grasshopper {
     width: 100px;
     height: auto;
+    margin-top: 20px;
 }
 .numbers {
     overflow: hidden;
-    position: relative;
     width: 100%;
     height: 40px;
     display: flex;
     justify-content: center;
 }
-.numbers-prev, .numbers-next {
-    display: flex;
-}
-.numbers-prev { 
-    position: absolute;
-    right: calc(50% + 20px);
-}
-.numbers-next {
-    position: absolute;
-    left: calc(50% + 20px);
+.num {
+    min-width: 50px;
+    text-align: center;
+    margin: 0px 5px;
 }
 .curr-val-gh {
-    position: absolute;
-    left: calc(50% - 20px);
     font-weight: bold;
     font-size: x-large;
-}
-.num {
-    width: 35px;
-    margin: 0px 5px;
-    text-align: center;
 }
 
 /* нижний контент */

@@ -31,8 +31,6 @@ export default {
             volumeB: 0,
             currVolumeA: 0,
             currVolumeB: 0,
-            min: 0,
-            max: 0,
             isActive: false,
             receivedValues: [],
             verifCode: {},
@@ -241,11 +239,8 @@ export default {
         }
         else if (this.executor === 'grasshopper') {
             this.title = 'Кузнечик';
-            this.args = {'forward': this.taskParams.forward, 'backward': this.taskParams.backward,
-                        'max': this.taskParams.max, 'min': this.taskParams.min};
+            this.args = {'forward': this.taskParams.forward, 'backward': this.taskParams.backward};
             this.currentValue = this.taskParams.start;
-            this.min = this.taskParams.min;
-            this.max = this.taskParams.max;
         }
         this.changeRender();
         window.addEventListener('resize', this.changeRender);
@@ -323,10 +318,7 @@ export default {
                 :min="minTask" />
             <Grasshopper
                 v-if="executor==='grasshopper'"
-                :start=taskParams.start
-                :currentValue=currentValue
-                :min=min
-                :max=max />
+                :currentValue=currentValue />
             <Modal
                 v-if="executor==='grasshopper' && taskParams.procedure"
                 :isActive=isActive

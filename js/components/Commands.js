@@ -23,19 +23,15 @@ export default {
         // команды Кузнечика
         forward() {
             let newValue = this.currentValue + this.args.forward;
-            if (newValue <= this.args.max) {
-                this.$emit('changeCurrentValue', newValue);
-                let thisCommand = this.commands.find(el => el.name === 'forward');
-                this.$emit('addCommandToSolution', {'text': thisCommand.text, 'len': thisCommand.len});
-            }
+            this.$emit('changeCurrentValue', newValue);
+            let thisCommand = this.commands.find(el => el.name === 'forward');
+            this.$emit('addCommandToSolution', {'text': thisCommand.text, 'len': thisCommand.len});
         },
         backward() {
             let newValue = this.currentValue - this.args.backward;
-            if (newValue >= this.args.min) {
-                this.$emit('changeCurrentValue', newValue);
-                let thisCommand = this.commands.find(el => el.name === 'backward');
-                this.$emit('addCommandToSolution', {'text': thisCommand.text, 'len': thisCommand.len});
-            }
+            this.$emit('changeCurrentValue', newValue);
+            let thisCommand = this.commands.find(el => el.name === 'backward');
+            this.$emit('addCommandToSolution', {'text': thisCommand.text, 'len': thisCommand.len});
         },
         // команды Водолея
         fillA() {
