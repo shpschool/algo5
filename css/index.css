@@ -298,6 +298,13 @@ progress.volume-progress.done::-webkit-progress-value {
     width: 80%;
     min-width: 150px;
 }
+.procedure {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 .btn-sol {
     cursor: pointer;
     background-color: var(--transparent);
@@ -315,6 +322,14 @@ progress.volume-progress.done::-webkit-progress-value {
 }
 .btn-sol:active {
     background-color: var(--light-main-77);
+}
+.procedure .btn-sol {
+    position: absolute;
+    right: 0px;
+    padding: 2px;
+}
+.procedure .btn-sol:active {
+    background-color: var(--light-grey);
 }
 .btn-sol-cont {
     flex: 1;

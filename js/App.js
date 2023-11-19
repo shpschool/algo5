@@ -10,7 +10,6 @@ import DoublerDivider from './components/taskVisual/DoublerDivider.js';
 import Aquarius from './components/taskVisual/Aquarius.js';
 import Grasshopper from './components/taskVisual/Grasshopper.js';
 import Modal from './components/Modal.js';
-import commandHelper from './helpers/commandHelper.js';
 
 export default {
     data() {
@@ -42,7 +41,7 @@ export default {
             show: false,
             orientation: '',
             mobile: false,
-            usedProcedures: [],
+            procedureID: 0,
         }
     },
     props: ['ch'],
@@ -54,7 +53,49 @@ export default {
             this.commands = list;
         },
         addProcedure(com) {
+            com.id = this.procedureID;
+            this.procedureID++;
             this.procedures.push(com);
+            const node = document.getElementById('procedure-field');
+            let field = this.ch.createProcedureNode(com);
+            node.append(field);
+        },
+        removeProcedureFromProcedures(pr) {
+            let parent = document.getElementById('procedure-field');
+            let procedureNode = parent.querySelector('#p'+pr.id);
+            procedureNode.remove();
+            let index = this.procedures.findIndex(el => el.text === pr.text);
+            this.procedures.splice(index, 1);
+        },
+        removeProcedure(com) {
+            let isUsedInSolution = this.solution.find(el => el.text === com.text);
+            let isUsedInProcedures = false;
+            for (let el of this.procedures) {
+                let res = el.procedure.find(c => c.includes(com.text));
+                if (res) {
+                    isUsedInProcedures = true;
+                    break;
+                }
+            }
+            let isConfirm = false;
+            if (isUsedInSolution || isUsedInProcedures) {
+                let confirmText;
+                if (isUsedInSolution && !isUsedInProcedures) confirmText = 'Процедура используется в решении. Если ее удалить, то будет удалено решение. Хотите продолжить?';
+                if (!isUsedInSolution && isUsedInProcedures) confirmText = 'Процедура используется в коде другой процедуры. Если ее удалить, то будет удалена и другая процедура, а вместе с ней может удалиться и решение. Хотите продолжить?';
+                if (isUsedInProcedures && isUsedInSolution) confirmText = 'Процедура используется в решении и в коде другой процедуры. Если ее удалить, то будет удалена и другая процедура, и решение. Хотите продолжить?';
+                isConfirm = confirm(confirmText);
+            }
+            if ((!isUsedInSolution && !isUsedInProcedures) || isConfirm) {
+                this.removeProcedureFromProcedures(com);
+                if (isUsedInSolution) this.clean();
+                if (isUsedInProcedures) {
+                    let prArray = this.ch.findProcedureInProcedures([com], this.procedures);
+                    console.log('procedures for deleting:', prArray);
+                    isUsedInSolution = this.ch.findProcedureInSolution(prArray, this.solution);
+                    prArray.forEach(el => this.removeProcedureFromProcedures(el));
+                    if (isUsedInSolution) this.clean();
+                }
+            }
         },
         changeCurrentValue(value) {
             this.currentValue = value;
@@ -86,23 +127,10 @@ export default {
             }
             return command;
         },
-        addUsedProcedure(command) {
-            if (command.procedure) {
-                const node = document.getElementById('procedure-field');
-                let procedure = this.usedProcedures.find(el => el.procedure === command.text);
-                if (!procedure) {
-                    let field = this.ch.createProcedureNode(command);
-                    this.usedProcedures.push({'procedure': command.text, 'number': this.solutionLength});
-                    node.append(field);
-                } 
-            }
-        },
         addCommandToSolution(command) {
             let newCom = this.ch.createNewCommand(
                 command, this.executor, this.isTarget, this.currentValue, this.currVolumeA, this.currVolumeB, this.volumeA, this.volumeB
             );
-            console.log(newCom);
-            this.addUsedProcedure(command);
             this.solution.push(newCom);
             this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
             this.deleteArr = [];
@@ -117,8 +145,8 @@ export default {
             this.currVolumeA = this.taskParams.start_volumeA;
             this.currVolumeB = this.taskParams.start_volumeB;
             this.receivedValues = [];
-            this.usedProcedures = [];
-            document.getElementById('procedure-field').innerHTML = '';
+            // this.usedProcedures = [];
+            // document.getElementById('procedure-field').innerHTML = '';
         },
         popValue(value) {
             let lastValue = this.receivedValues[this.receivedValues.length - 1];
@@ -126,16 +154,6 @@ export default {
                 let res = this.receivedValues.pop();
                 console.log('poped value: ', res);
                 console.log('received values array: ', this.receivedValues);
-            }
-        },
-        removeProcedure(com) {
-            let procedure = this.usedProcedures.find(el => el.procedure === com.text);
-            if (procedure && procedure.number === this.solutionLength) {
-                let index = this.usedProcedures.indexOf(procedure);
-                this.usedProcedures.splice(index, 1);
-                let parent = document.getElementById('procedure-field');
-                let procedureNode = parent.querySelector('#p'+com.text);
-                procedureNode.remove();
             }
         },
         back() {
@@ -148,7 +166,7 @@ export default {
                 this.popValue(com.value);
                 this.popValue(com.valueA);
                 this.popValue(com.valueB);
-                this.removeProcedure(com);
+                // this.removeProcedure(com);
                 let el = this.solution[this.solution.length - 1];
                 if (el) {
                     this.currentValue = el.value;
@@ -169,7 +187,7 @@ export default {
             if (com) {
                 this.solution.push(com);
                 console.log('repeat command: ', com);
-                this.addUsedProcedure(com);
+                // this.addUsedProcedure(com);
                 this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
                 this.currentValue = com.value;
                 this.currVolumeA = com.valueA;
@@ -312,7 +330,8 @@ export default {
                 @add-command-to-solution="addCommandToSolution"
                 @change-current-value="changeCurrentValue"
                 @change-volume-a="changeVolumeA"
-                @change-volume-b="changeVolumeB" />
+                @change-volume-b="changeVolumeB"
+                @remove-procedure=removeProcedure />
         </div>
         <SolutionCont
             class="bottom-content"
@@ -379,7 +398,8 @@ export default {
                 @add-command-to-solution="addCommandToSolution"
                 @change-current-value="changeCurrentValue"
                 @change-volume-a="changeVolumeA"
-                @change-volume-b="changeVolumeB" />
+                @change-volume-b="changeVolumeB"
+                @remove-procedure=removeProcedure />
             <SolutionCont
                 :solution=solution
                 :solutionLength=solutionLength

@@ -84,10 +84,33 @@ const renderSolution = (solution) => {
 const createProcedureNode = (com) => {
     let node = document.createElement('div');
     node.className = 'command';
-    node.id = 'p' + com.text;
-    let procedureText = `<span class="operator">процедура ${com.text}\nначало процедуры</span>\n${com.procedure}\n<span class="operator">конец процедуры</span>\n\n`;
+    node.id = 'p' + com.id;
+    let procedureText = `<span class="operator">процедура ${com.text}\nначало процедуры</span>\n${com.procedure.join('\n')}\n<span class="operator">конец процедуры</span>\n\n`;
     node.innerHTML = procedureText;
     return node;
 }
 
-export default {changeSolLen, createNewCommand, renderSolution, createProcedureNode};
+const findProcedureInProcedures = (prArray, procedures) => {
+    if (prArray.length < 1) {
+        return prArray;
+    } else {
+        let usedInProcedures = [];
+        prArray.forEach(pr => {
+            procedures.forEach(el => {
+                let isUsed = el.procedure.find(c => c.includes(pr.text));
+                if (isUsed) usedInProcedures.push(el);
+            });
+        });
+        return usedInProcedures.concat(findProcedureInProcedures(usedInProcedures, procedures));
+    }
+}
+
+const findProcedureInSolution = (prArray, solution) => {
+    for (let el of prArray) {
+        let isUsed = solution.find(c => c.text === el.text);
+        if (isUsed) return true;
+    };
+    return false;
+}
+
+export default {changeSolLen, createNewCommand, renderSolution, createProcedureNode, findProcedureInProcedures, findProcedureInSolution};

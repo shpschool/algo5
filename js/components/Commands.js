@@ -1,6 +1,6 @@
 export default {
     props: ['executor', 'args', 'commands', 'procedures', 'currentValue', 'volumeA', 'volumeB', 'currVolumeA', 'currVolumeB', 'procedure'],
-    emits: ['addCommandToSolution', 'changeCurrentValue', 'changeVolumeA', 'changeVolumeB', 'saveCommands', 'openModal'],
+    emits: ['addCommandToSolution', 'changeCurrentValue', 'changeVolumeA', 'changeVolumeB', 'saveCommands', 'openModal', 'removeProcedure'],
     methods: {
         // команды Удвоителя
         plus() {
@@ -114,6 +114,9 @@ export default {
                 ];
                 this.$emit('saveCommands', list);
             }
+        },
+        deleteProcedure(com) {
+            this.$emit('removeProcedure', com);
         }
     },
     watch: {
@@ -132,7 +135,10 @@ export default {
             <button v-for="com in commands" :key=com.text @click=com.func(currentValue) class="btn-command">{{com.text}}</button>
             <div v-if="executor === 'grasshopper' && procedure" class="colomn-cont">
                 <button class="btn-main make-procedure" @click="this.$emit('openModal', true)">Создать процедуру</button>
-                <button class="btn-command" v-for="com in procedures" :key=com.text @click=com.func>{{com.text}}</button>
+                <div class="procedure" v-for="com in procedures" :key=com.text>
+                    <button class="btn-command" @click=com.func>{{com.text}}</button>
+                    <button class="btn-sol" @click="deleteProcedure(com)"><img src="assets/cancel.png" class="arrow cancel" title="Удалить процедуру"></button>
+                </div>
             </div>
         </div>
     </div>
