@@ -4,7 +4,7 @@
         "tasks": [
             
             {
-                "task": 2,
+                "task": 1,
                 "executor": "grasshopper",
                 "task_title": "Тут так принято",
                 "task_text": [
@@ -33,7 +33,7 @@
                 }
             },
             {
-                "task": 3,
+                "task": 2,
                 "executor": "grasshopper",
                 "task_title": "Музицируем",
                 "task_text": [
@@ -381,4 +381,5 @@
                 }
             }
         ]
+    }
 ]
