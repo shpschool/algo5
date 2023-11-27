@@ -1,0 +1,105 @@
+[
+    {
+        "level": 1,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "doubler",
+                "task_title": "Удвоитель",
+                "task_text": [
+                    "Условие задачи"
+                ],
+                "params": {
+                    "start": 0,
+                    "plus": 1,
+                    "multi": 2,
+                    "end": 12,
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "PUVHBY-0L12T1",
+                    "75": "SKBUOP-75L12T1",
+                    "100": "OKEDAU-100L12T1"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "divider",
+                "task_title": "Поделитель",
+                "task_text": [
+                    "Условие задачи"
+                ],
+                "params": {
+                    "end": 1,
+                    "minus": 1,
+                    "divide": 2,
+                    "start": 5,
+                    "steps": 3
+                },
+                "verif_code": {
+                    "0": "MOCCHP-0L12T2",
+                    "75": "BRAIOX-75L12T2",
+                    "100": "YFBFGM-100L12T2"
+                }
+            }
+        ]
+    },
+    {
+        "level": 2,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Воделей",
+                "task_text": [
+                    "Условие задачи"
+                ],
+                "params": {
+                    "start_volumeA": 4,
+                    "start_volumeB": 0,
+                    "volumeA": 5,
+                    "volumeB": 9,
+                    "target": [
+                        7,
+                        1
+                    ],
+                    "steps": 15
+                },
+                "verif_code": {
+                    "0": "PIDLYA-0L12T3",
+                    "75": "SPASWW-75L12T3",
+                    "100": "NHFGBG-100L12T3"
+                }
+            }
+        ]
+    },
+    {
+        "level": 3,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "grasshopper",
+                "task_title": "Кузнечик",
+                "task_text": [
+                    "Условие задачи"
+                ],
+                "params": {
+                    "start": 1,
+                    "procedure": "1",
+                    "forward": 5,
+                    "backward": 2,
+                    "target": [
+                        7,
+                        2
+                    ],
+                    "steps": 17
+                },
+                "verif_code": {
+                    "0": "FKZSRV-0L12T4",
+                    "75": "CFHONF-75L12T4",
+                    "100": "PAKHIE-100L12T4"
+                }
+            }
+        ]
+    }
+]
