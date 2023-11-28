@@ -88,9 +88,10 @@ if (path.searchParams.get('lesson')) {
             <button class="btn-main" @click="accessCheck">Войти</button>
         </div>
         <div v-else class="cont colomn-cont">
-            <div v-if="!page" class="colomn-cont">
+            <div v-if="!page" class="colomn-cont" style="margin-top: 30px">
                 <h2 @click="page = 'show'" class="btn-link">Посмотреть занятия</h2>
                 <h2 @click="page = 'create'" class="btn-link">Создать занятие</h2>
+                <h2><a href="docs/for_methodists/README" class="btn-link">Документация для методистов</a></h2>
             </div>
             <ShowLessons v-if="page==='show'"
                 @back="back"
