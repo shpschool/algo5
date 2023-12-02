@@ -1,5 +1,11 @@
 import "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
 
+/**
+ * Стилизация таблицы
+ * @param sheet - сама таблица
+ * @param len - количество строк в таблице
+ * Результатом выступает добавление стилей для каждой ячейки таблицы
+ */
 function styleSheet(sheet, len) {
     sheet["!rows"] = [{}];
     for (let row = 0; row < len; row++) {
@@ -25,6 +31,12 @@ function styleSheet(sheet, len) {
     }
     sheet["!cols"] = [{wch: 3}, {}, {wch: 10}, {wch: 22}, {wch: 50}, {wch: 10}];
 }
+
+/**
+ * Объединение нужных ячеек в таблице
+ * @param len - количество строк в таблице 
+ * @returns список объединений
+ */
 function mergeCells(len) {
     let merge = [];
     let cols = [0, 1, 4, 5];
@@ -39,6 +51,13 @@ function mergeCells(len) {
     return merge;
 }
 
+/**
+ * Создание алгоритма решения задачи
+ * @param exec - Исполнитель задачи
+ * @param params - параметры задачи для текущего Исполнителя
+ * @param makeAlgorithmHelper - модуль с функциями составления алгоритмов в зависимости от Исполнителя
+ * @returns форматированная строка решения задачи
+ */
 function makeAlgorithm(exec, params, makeAlgorithmHelper) {
     let algorithm = "";
     if (exec === "divider") {
@@ -52,6 +71,13 @@ function makeAlgorithm(exec, params, makeAlgorithmHelper) {
     }
     return algorithm;
 }
+
+/**
+ * Создание excel-таблицы эталонных решений урока
+ * @param lesson - объект урока, содержащий в себе в том числе задачи урока
+ * @param makeAlgorithmHelper - модуль с функциями соствления алгоритмов в зависимости от Исполнителя
+ * @returns объект excel-таблицы для формирования excel-файла
+ */
 export default function createExcel(lesson, makeAlgorithmHelper) {
     let book = [["№", "Название", "Вариант", "Код", "Алгоритм", "Шагов"]];
     let num = 1;

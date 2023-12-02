@@ -4,7 +4,5 @@
 
 -----
 
------
-
-- [Документация для методистов](https://shpschool.github.io/algo5/docs/for_methodists/README)
-- [Документация для кода](https://shpschool.github.io/algo5/docs/for_code/README)
+- [Документация для методистов](https://shpschool.github.io/algo5/docs/for_methodists/)
+- [Документация для кода](https://shpschool.github.io/algo5/docs/for_code/)

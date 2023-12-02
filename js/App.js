@@ -145,8 +145,6 @@ export default {
             this.currVolumeA = this.taskParams.start_volumeA;
             this.currVolumeB = this.taskParams.start_volumeB;
             this.receivedValues = [];
-            // this.usedProcedures = [];
-            // document.getElementById('procedure-field').innerHTML = '';
         },
         popValue(value) {
             let lastValue = this.receivedValues[this.receivedValues.length - 1];
@@ -166,7 +164,6 @@ export default {
                 this.popValue(com.value);
                 this.popValue(com.valueA);
                 this.popValue(com.valueB);
-                // this.removeProcedure(com);
                 let el = this.solution[this.solution.length - 1];
                 if (el) {
                     this.currentValue = el.value;
@@ -187,7 +184,6 @@ export default {
             if (com) {
                 this.solution.push(com);
                 console.log('repeat command: ', com);
-                // this.addUsedProcedure(com);
                 this.solutionLength = this.ch.changeSolLen(this.solution, this.executor);
                 this.currentValue = com.value;
                 this.currVolumeA = com.valueA;

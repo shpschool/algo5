@@ -41,52 +41,48 @@ export default {
         }
     },
     methods: {
+        closeAndCleanModal() {
+            this.$emit('closeModal');
+            this.canClose = false;
+            this.procedureName = '';
+            this.modalCommands = [];
+            this.modalSolution = [];
+            this.modalDeleteArr = [];
+            this.modalCurrentValue = 0;
+            this.modalSolutionLength = 0;
+            this.afterChange = false;
+        },
         checkClose({ target: t }) {
             if (!t.closest('.modal')) this.canClose = true;
         },
         canCloseModal({ target: t }) {
             if (!t.closest('.modal') && this.canClose) {
-                this.$emit('closeModal');
-                this.procedureName = '';
-                this.modalCommands = [];
-                this.modalSolution = [];
-                this.modalDeleteArr = [];
-                this.modalCurrentValue = 0;
-                this.modalSolutionLength = 0;
-                this.afterChange = false;
+                this.closeAndCleanModal();
             }
-        },
-        changeSolLength() {
-            let solutionLen = 0;
-            for (let i=0; i< this.modalSolution.length; i++) {
-                let com = this.modalSolution[i];
-                solutionLen += com.len;
-            }
-            this.modalSolutionLength = solutionLen;
         },
         forward() {
             this.modalCurrentValue += this.args.forward;
             let thisCommand = this.modalCommands.find(el => el.name === 'forward');
             this.modalSolution.push({'text': thisCommand.text, 'value': this.modalCurrentValue, 'len': thisCommand.len});
-            this.changeSolLength();
+            this.modalSolutionLength = this.ch.changeSolLen(this.modalSolution, 'grasshopper');
         },
         backward() {
             this.modalCurrentValue -= this.args.backward;
             let thisCommand = this.modalCommands.find(el => el.name === 'backward');
             this.modalSolution.push({'text': thisCommand.text, 'value': this.modalCurrentValue, 'len': thisCommand.len});
-            this.changeSolLength();
+            this.modalSolutionLength = this.ch.changeSolLen(this.modalSolution, 'grasshopper');
         },
         clean() {
             this.modalSolution = [];
             this.modalDeleteArr = [];
-            this.changeSolLength();
+            this.modalSolutionLength = this.ch.changeSolLen(this.modalSolution, 'grasshopper');
             this.modalCurrentValue = 0;
         },
         back() {
             let com = this.modalSolution.pop();
             if (com) {
                 this.modalDeleteArr.push(com);
-                this.changeSolLength();
+                this.modalSolutionLength = this.ch.changeSolLen(this.modalSolution, 'grasshopper');
                 let el = this.modalSolution[this.modalSolution.length - 1];
                 if (el) {
                     this.modalCurrentValue = el.value;
@@ -100,14 +96,14 @@ export default {
             let com = this.modalDeleteArr.pop();
             if (com) {
                 this.modalSolution.push(com);
-                this.changeSolLength();
+                this.modalSolutionLength = this.ch.changeSolLen(this.modalSolution, 'grasshopper');
                 this.modalCurrentValue = com.value;
             }
         },
         addCommandToModalSolution(com) {
             this.modalCurrentValue += com.value;
             this.modalSolution.push(com);
-            this.changeSolLength();
+            this.modalSolutionLength = this.ch.changeSolLen(this.modalSolution, 'grasshopper');
         },
         makeProcedure() {
             if (this.procedureName) {
@@ -135,15 +131,7 @@ export default {
                     'procedure': procedureSolution
                 };
                 this.$emit('addProcedure', com);
-                this.$emit('closeModal');
-                this.canClose = false;
-                this.procedureName = '';
-                this.modalCommands = [];
-                this.modalSolution = [];
-                this.modalDeleteArr = [];
-                this.modalCurrentValue = 0;
-                this.modalSolutionLength = 0;
-                this.afterChange = false;
+                this.closeAndCleanModal();
             } else this.afterChange = true;
         },
     },

@@ -85,26 +85,24 @@ export default {
             }
         },
         makeCommands() {
+            let list;
             if (this.executor === 'doubler') {
-                let list = [
+                list = [
                     {'text': `+${this.args.plus}`, 'func': this.plus},
                     {'text': `x${this.args.multi}`, 'func': this.multi},
                 ];
-                this.$emit('saveCommands', list);
             } else if (this.executor === 'divider') {
-                let list = [
+                list = [
                     {'text': `-${this.args.minus}`, 'func': this.minus},
                     {'text': `:${this.args.divide}`, 'func': this.divide},
                 ];
-                this.$emit('saveCommands', list);
             } else if (this.executor === 'grasshopper') {
-                let list = [
+                list = [
                     {'text': `вперёд ${this.args.forward}`, 'func': this.forward, 'len': 1, 'name': 'forward'},
                     {'text': `назад ${this.args.backward}`, 'func': this.backward, 'len': 1, 'name': 'backward'},
                 ];
-                this.$emit('saveCommands', list);
             } else if (this.executor === 'aquarius') {
-                let list = [
+                list = [
                     {'text': 'наполнить А', 'func': this.fillA},
                     {'text': 'наполнить В', 'func': this.fillB},
                     {'text': 'опустошить А', 'func': this.emptyA},
@@ -112,11 +110,8 @@ export default {
                     {'text': 'перелить из А в В', 'func': this.fromAtoB},
                     {'text': 'перелить из В в А', 'func': this.fromBtoA},
                 ];
-                this.$emit('saveCommands', list);
             }
-        },
-        deleteProcedure(com) {
-            this.$emit('removeProcedure', com);
+            this.$emit('saveCommands', list);
         }
     },
     watch: {
@@ -137,7 +132,7 @@ export default {
                 <button class="btn-main make-procedure" @click="this.$emit('openModal', true)">Создать процедуру</button>
                 <div class="procedure" v-for="com in procedures" :key=com.text>
                     <button class="btn-command" @click=com.func>{{com.text}}</button>
-                    <button class="btn-sol" @click="deleteProcedure(com)"><img src="assets/cancel.png" class="arrow cancel" title="Удалить процедуру"></button>
+                    <button class="btn-sol" @click="this.$emit('removeProcedure', com)"><img src="assets/cancel.png" class="arrow cancel" title="Удалить процедуру"></button>
                 </div>
             </div>
         </div>
