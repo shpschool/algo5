@@ -1,0 +1,457 @@
+[
+    {
+        "level": 1,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "grasshopper",
+                "task_title": "Простая мелодия",
+                "task_text": [
+                    "<i>Сыграем несколько мелодий, может это поможет?</i>",
+                    "<hr>",
+                    "Кузнечик может прыгать на 13 клеток вперёд и 60 клеток назад. Перемести Кузнечика в точку 1001 из точки 0."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 13,
+                    "backward": 60,
+                    "target": [
+                        1001
+                    ],
+                    "steps": 77
+                },
+                "verif_code": {
+                    "0": "JTXTPC-0L15T1",
+                    "75": "BKMLIL-75L15T1",
+                    "100": "ULDEZB-100L15T1"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "grasshopper",
+                "task_title": "Вещь посложнее",
+                "task_text": [
+                    "Кузнечик может прыгать на 15 клеток вперёд и 27 клеток назад. Перемести Кузнечика в точку 42 из точки 0."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 15,
+                    "backward": 27,
+                    "target": [
+                        42
+                    ],
+                    "steps": 14
+                },
+                "verif_code": {
+                    "0": "YJLROV-0L15T2",
+                    "75": "ZWSVOI-75L15T2",
+                    "100": "BQEHJS-100L15T2"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "grasshopper",
+                "task_title": "Гармония",
+                "task_text": [
+                    "Кузнечик может прыгать на 101 клетку вперёд и 209 клеток назад. Перемести Кузнечика в точку 40 из точки 0."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 101,
+                    "backward": 209,
+                    "target": [
+                        40
+                    ],
+                    "steps": 160
+                },
+                "verif_code": {
+                    "0": "AQIUVZ-0L15T3",
+                    "75": "CLWAIQ-75L15T3",
+                    "100": "IZPWNW-100L15T3"
+                }
+            },
+            {
+                "task": 4,
+                "executor": "grasshopper",
+                "task_title": "Заявка на хит",
+                "task_text": [
+                    "Кузнечик может прыгать на 123 клетки вперёд и 321 клетку назад. Перемести Кузнечика в точку 4320 из точки 0."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 123,
+                    "backward": 321,
+                    "target": [
+                        4320
+                    ],
+                    "steps": 64
+                },
+                "verif_code": {
+                    "0": "OCCNPW-0L15T4",
+                    "75": "NDBQCP-75L15T4",
+                    "100": "VYFBON-100L15T4"
+                }
+            }
+        ]
+    },
+    {
+        "level": 2,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Анализируем смесь",
+                "task_text": [
+                    "Ёмкость А вмещает 20 литров, ёмкость B — 8 литров.",
+                    "Получите в любой ёмкости найденные в тесте значения (другие искать не нужно)."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 20,
+                    "volumeB": 8,
+                    "target": [
+                        4,
+                        12
+                    ],
+                    "steps": 4
+                },
+                "verif_code": {
+                    "0": "BNORLJ-0L15T5",
+                    "75": "GQKCLE-75L15T5",
+                    "100": "PKGJKE-100L15T5"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "aquarius",
+                "task_title": "Создаём прототип",
+                "task_text": [
+                    "Ёмкость А вмещает 23 литра, ёмкость B — 9 литров.",
+                    "Получите в любой ёмкости найденные в тесте значения (другие искать не нужно)."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 23,
+                    "volumeB": 9,
+                    "target": [
+                        1,
+                        4,
+                        6,
+                        13,
+                        19,
+                        20
+                    ],
+                    "steps": 54
+                },
+                "verif_code": {
+                    "0": "WWKQJW-0L15T6",
+                    "75": "RHLVUU-75L15T6",
+                    "100": "BXSUWS-100L15T6"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "aquarius",
+                "task_title": "Растворение в эксперименте",
+                "task_text": [
+                    "Ёмкость А вмещает 32 литра, ёмкость B — 12 литров.",
+                    "Получите в любой ёмкости найденные в тесте значения (другие искать не нужно)."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 32,
+                    "volumeB": 12,
+                    "target": [
+                        16,
+                        24
+                    ],
+                    "steps": 10
+                },
+                "verif_code": {
+                    "0": "QNODVD-0L15T7",
+                    "75": "CQCCSA-75L15T7",
+                    "100": "LZDDUI-100L15T7"
+                }
+            }
+        ]
+    },
+    {
+        "level": 3,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "doubler",
+                "task_title": "Сложение - всему голова",
+                "task_text": [
+                    "<i>В основе всего − сложение, верно?! Ну, и немножечко вычитания.</i>",
+                    "<hr>",
+                    "Преврати число 0 в число 544 за минимальное количество действий."
+                ],
+                "params": {
+                    "start": 0,
+                    "plus": 1,
+                    "multi": 2,
+                    "end": 544,
+                    "steps": 11
+                },
+                "verif_code": {
+                    "0": "AZXZIH-0L15T8",
+                    "75": "MRZPCT-75L15T8",
+                    "100": "PUPYME-100L15T8"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "doubler",
+                "task_title": "Математика - это основа",
+                "task_text": [
+                    "<i>Вот так!",
+                    "А это составит основу языка. Ведь так?</i>",
+                    "<hr>",
+                    "Преврати число 42 в число 21404 за минимальное количество действий."
+                ],
+                "params": {
+                    "start": 42,
+                    "plus": 1,
+                    "multi": 2,
+                    "end": 21404,
+                    "steps": 53
+                },
+                "verif_code": {
+                    "0": "AWWZCL-0L15T9",
+                    "75": "LHJXCC-75L15T9",
+                    "100": "VJILRT-100L15T9"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "doubler",
+                "task_title": "Нужно больше научности!",
+                "task_text": [
+                    "<i>Но мало одной математики. Команды, вот что важно!</i>",
+                    "<hr>",
+                    "Преврати число 13 в число 36901 за минимальное количество действий."
+                ],
+                "params": {
+                    "start": 13,
+                    "plus": 1,
+                    "multi": 2,
+                    "end": 36901,
+                    "steps": 19
+                },
+                "verif_code": {
+                    "0": "ARGUZQ-0L15T10",
+                    "75": "DBYYRG-75L15T10",
+                    "100": "ELBMRQ-100L15T10"
+                }
+            }
+        ]
+    },
+    {
+        "level": 4,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "grasshopper",
+                "task_title": "Оптимальная мелодия",
+                "task_text": [
+                    "<i>Делаем мелодию с помощью сестры таланта! Как же это было?...</i>",
+                    "<hr>",
+                    "Кузнечик может прыгать на 24 клетки вперёд и 1001 клетку назад. Перемести Кузнечика сперва из точки 0 в точку 387, затем оттуда в точку 1024."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 24,
+                    "backward": 1001,
+                    "target": [
+                        387,
+                        1024
+                    ],
+                    "steps": 1751
+                },
+                "verif_code": {
+                    "0": "JFJLSS-0L15T11",
+                    "75": "PZYWJG-75L15T11",
+                    "100": "TTGUDN-100L15T11"
+                }
+            }
+        ]
+    },
+    {
+        "level": 5,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "grasshopper",
+                "task_title": "Испытание №15",
+                "task_text": [
+                    "Кузнечик может прыгать на 1 111 111 клеток вперёд и 223 клетки назад. Перемести Кузнечика в точку 123 123 123 из точки 0."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 1111111,
+                    "backward": 223,
+                    "target": [
+                        123123123
+                    ],
+                    "steps": 75807
+                },
+                "verif_code": {
+                    "0": "DUUZEX-0L15T12",
+                    "75": "HWFQMW-75L15T12",
+                    "100": "IQLUTE-100L15T12"
+                }
+            }
+        ]
+    },
+    {
+        "level": 6,
+        "tasks": [
+            {
+                "task": 1,
+                "executor": "aquarius",
+                "task_title": "Пропорции МШПариума",
+                "task_text": [
+                    "Ёмкость А вмещает 18 литров, ёмкость B — 7 литров.",
+                    "Получите в любой ёмкости значения 6, 10 и 17."
+                ],
+                "params": {
+                    "start_volumeA": 0,
+                    "start_volumeB": 0,
+                    "volumeA": 18,
+                    "volumeB": 7,
+                    "target": [
+                        6,
+                        10,
+                        17
+                    ],
+                    "steps": 14
+                },
+                "verif_code": {
+                    "0": "UWDBMT-0L15T13",
+                    "75": "PAAZQA-75L15T13",
+                    "100": "AZRRJB-100L15T13"
+                }
+            },
+            {
+                "task": 2,
+                "executor": "doubler",
+                "task_title": "Команды сложения",
+                "task_text": [
+                    "Преврати число 0 в число 425 за минимальное количество действий."
+                ],
+                "params": {
+                    "start": 0,
+                    "plus": 1,
+                    "multi": 2,
+                    "end": 425,
+                    "steps": 13
+                },
+                "verif_code": {
+                    "0": "TRPDIF-0L15T14",
+                    "75": "QJWDJL-75L15T14",
+                    "100": "ZFUGLY-100L15T14"
+                }
+            },
+            {
+                "task": 3,
+                "executor": "doubler",
+                "task_title": "Иные команды",
+                "task_text": [
+                    "Преврати число 23 в число 594 за минимальное количество действий."
+                ],
+                "params": {
+                    "start": 23,
+                    "plus": 1,
+                    "multi": 2,
+                    "end": 594,
+                    "steps": 19
+                },
+                "verif_code": {
+                    "0": "TFWODQ-0L15T15",
+                    "75": "EBEIRU-75L15T15",
+                    "100": "DADKOL-100L15T15"
+                }
+            },
+            {
+                "task": 4,
+                "executor": "grasshopper",
+                "task_title": "Сперва песня",
+                "task_text": [
+                    "Кузнечик может прыгать на 21 клетку вперёд и 68 клеток назад. Перемести Кузнечика из точки 0 в точку 100."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 21,
+                    "backward": 68,
+                    "target": [
+                        100
+                    ],
+                    "steps": 9
+                },
+                "verif_code": {
+                    "0": "TEMFDZ-0L15T16",
+                    "75": "WNQNTJ-75L15T16",
+                    "100": "YPPRFE-100L15T16"
+                }
+            },
+            {
+                "task": 5,
+                "executor": "grasshopper",
+                "task_title": "Сокращаем алгоритм",
+                "task_text": [
+                    "Кузнечик может прыгать на 777 клеток вперёд и 105 клеток назад. Перемести Кузнечика из точки 0 в точку 6657."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 777,
+                    "backward": 105,
+                    "target": [
+                        6657
+                    ],
+                    "steps": 103
+                },
+                "verif_code": {
+                    "0": "PSOTNQ-0L15T17",
+                    "75": "HLEHTB-75L15T17",
+                    "100": "EPYCFJ-100L15T17"
+                }
+            },
+            {
+                "task": 6,
+                "executor": "grasshopper",
+                "task_title": "Сложные программы",
+                "task_text": [
+                    "Кузнечик может прыгать на 45 клеток вперёд и 38 клеток назад. Перемести Кузнечика сперва из точки 0 в точку -39, затем оттуда в точку 101."
+                ],
+                "params": {
+                    "start": 0,
+                    "procedure": "1",
+                    "forward": 45,
+                    "backward": 38,
+                    "target": [
+                        -39,
+                        101
+                    ],
+                    "steps": 100
+                },
+                "verif_code": {
+                    "0": "ZAAGRG-0L15T18",
+                    "75": "JRLGIK-75L15T18",
+                    "100": "SRLMQY-100L15T18"
+                }
+            }
+        ]
+    }
+]
